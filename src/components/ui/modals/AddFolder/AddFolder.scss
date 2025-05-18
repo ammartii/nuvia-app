@@ -1,0 +1,15 @@
+@import "../../../../styles/Mixins";
+@import "../../../../styles/Variables";
+
+// Yo creo que esto podríamos unificarlo en una clase y cargarnos este scss
+.add-folder-overlay {
+  @include modal-overlay;
+}
+
+.add-folder-content {
+  @include modal-content;
+}
+
+.add-folder__buttons {
+  @include flex-column-center(12px);
+}

@@ -1,0 +1,43 @@
+.avatar-image {
+  width: 125px;
+  height: 125px;
+  border-radius: var(--border-radius-circle);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin: var(--margin-12);
+  object-fit: contain;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: var(--box-shadow-general);
+  }
+}
+
+.avatar-image.selected {
+  transform: scale(1.1);
+  border: var(--border-avatar);
+  box-shadow: var(--box-shadow-general);
+}
+
+.img-motivation-card {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  margin-right: 12px;
+}
+
+// Welcome
+.nuvia-girl {
+  width: 440px;
+}
+
+// ************* NUEVOS *************
+.add-folder__image {
+  width: 150px;
+  height: 150px;
+}
+
+.folder-card__image {
+  width: 100px;
+  height: 100px;
+}

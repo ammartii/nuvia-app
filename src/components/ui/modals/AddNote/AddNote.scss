@@ -1,0 +1,85 @@
+@import "../../../../styles/Mixins";
+@import "../../../../styles/Variables";
+
+// Yo creo que esto podríamos unificarlo en una clase y cargarnos este scss
+.add-note-overlay {
+  @include modal-overlay;
+}
+
+.add-note-container {
+  padding: 48px;
+  @include modal-content;
+}
+
+.add-note-content {
+  width: 100%;
+  height: 300px;
+  padding: 24px;
+
+  background-color: #fcf9da;
+  border: 1px solid #fddb77;
+  border-radius: $border-radius-card;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.note-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.add-note__textarea,
+.add-note__input {
+  background-color: transparent;
+  font-family: "Inter", sans-serif;
+  text-align: left;
+
+  @include remove-border;
+}
+
+.add-note__input {
+  font-size: 18px;
+  font-weight: $font-weight-bold;
+}
+
+.add-note__select {
+  border: none;
+  width: 35%;
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: $font-weight-regular;
+  padding: 0;
+  margin: 0;
+  margin-left: -4px;
+
+  &:focus {
+    @include remove-border;
+  }
+}
+
+.select-option {
+  font-size: 16px;
+  padding: 8px;
+  color: #333;
+  background-color: #f0f0f0;
+}
+
+.add-note__textarea {
+  margin-top: 24px;
+  height: 130px;
+  font-size: $font-size-text;
+  font-weight: $font-weight-regular;
+}
+
+.add-note__buttons {
+  @include flex-column-center(12px);
+}
+
+/*
+.add-note__file {
+  @include remove-border;
+}
+  */

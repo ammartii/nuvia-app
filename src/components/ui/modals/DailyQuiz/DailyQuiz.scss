@@ -1,0 +1,152 @@
+@import "../../../../styles/Mixins";
+@import "../../../../styles/Variables";
+
+.dailyquiz__modal {
+  width: 100vw;
+  height: 100%;
+  min-height: 100vh;
+  padding-top: 48px;
+  background-color: $bg-color;
+  z-index: 2000;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  @include flexbox(flex-start, center, column, nowrap, 12px);
+}
+
+// Header
+.dailyquiz-header__container {
+  width: 100%;
+  padding: 12px 24px;
+  @include flexbox(space-between, center);
+}
+
+// Button
+.dailyquiz__actions {
+  padding-bottom: 48px;
+}
+// Contenido steps
+.dailyquiz__content {
+  height: 100%;
+  margin-bottom: 24px;
+}
+
+.step__container {
+  text-align: center;
+  @include flexbox(center, center, column, nowrap, 24px);
+}
+
+.step__tittle {
+  margin-top: 24px;
+  height: auto;
+
+  h3 {
+    font-size: 28px;
+    font-weight: bold;
+    color: $primary-color;
+    padding: 0 24px;
+  }
+}
+
+// STEP 1
+.step1__content {
+  @include flexbox(center, center, column, nowrap, 12px);
+
+  .big-icon {
+    margin-bottom: 48px;
+    @include flexbox(center, center, column, nowrap, 12px);
+
+    img {
+      width: 180px;
+      height: 180px;
+    }
+
+    span {
+      font-size: 18px;
+      font-weight: medium;
+    }
+  }
+
+  .small-icons {
+    padding: 24px;
+    @include flexbox(center, center, row, nowrap, 12px);
+
+    .small-icon {
+      cursor: pointer;
+      border: 1px solid transparent;
+      border-radius: $border-radius-card;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      img {
+        width: 55px;
+        height: 55px;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+      }
+
+      &.selected {
+        border-color: $secondary-color;
+        box-shadow: $box-shadow-general;
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+// Step 2
+
+.activities-list {
+  width: 100%;
+  height: 450px;
+  padding-bottom: 12px;
+  overflow: scroll;
+
+  @include flexbox(center, center, row, wrap, 12px);
+}
+
+.activity-item {
+  flex-shrink: 0;
+  width: 110px;
+  height: 130px;
+  padding: 12px;
+  background-color: $white-color;
+  box-shadow: $box-shadow-general;
+  border-radius: $border-radius-card;
+
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  @include flexbox(flex-start, center, column, nowrap, 6px);
+
+  img {
+    width: 60px;
+    height: 60px;
+  }
+  span {
+    text-align: center;
+    font-size: 12px;
+    color: #333;
+  }
+
+  &.selected {
+    border-color: $secondary-color;
+    box-shadow: $box-shadow-general;
+    transform: scale(1.05);
+  }
+}
+
+// Step 3
+.step3__content {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}

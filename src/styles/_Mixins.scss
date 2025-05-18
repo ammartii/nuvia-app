@@ -1,0 +1,90 @@
+// Breakpoints
+$breakpoint-sm: 576px; // Móvil pequeño
+$breakpoint-md: 768px; // Móvil grande, tablet en orientación vertical
+$breakpoint-lg: 1024px; // Tablet en orientación horizontal
+$breakpoint-xl: 1200px; // Desktop grande
+
+// Mixin para media queries
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == sm {
+    @media (max-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (max-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (max-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (max-width: $breakpoint-xl) {
+      @content;
+    }
+  }
+}
+
+// ****** NUEVO ******
+
+// Flexbox
+@mixin flexbox(
+  $justify: flex-start,
+  $align: stretch,
+  $direction: row,
+  $wrap: nowrap,
+  $gap: null
+) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+
+  @if $gap != null {
+    gap: $gap;
+  }
+}
+
+@mixin row-wrap($gap: 0) {
+  @include flexbox(center, center, row, wrap, $gap);
+}
+
+@mixin column-center($gap: 0) {
+  @include flexbox(center, center, column, nowrap, $gap);
+}
+
+@mixin flex-column-center($gap: 0) {
+  @include flexbox(flex-start, center, column, nowrap, $gap);
+}
+
+// Eliminar bordes
+@mixin remove-border {
+  border: none;
+  outline: none;
+}
+
+// Modales
+@mixin modal-overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: $z-index-overlay;
+
+  @include flexbox(center, center);
+}
+
+@mixin modal-content {
+  max-width: 350px;
+  min-height: 500px;
+  padding: 24px;
+  background-color: $white-color;
+  border-radius: $border-radius-popup;
+  text-align: center;
+  position: relative;
+
+  @include flex-column-center(24px);
+}

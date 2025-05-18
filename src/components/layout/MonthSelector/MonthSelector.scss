@@ -1,0 +1,9 @@
+@import "../../../styles/Mixins";
+@import "../../../styles/Variables";
+
+.month-selector__container {
+  width: 100%;
+  padding: 12px 30px;
+
+  @include flexbox(center, center, row, nowrap, 26px);
+}

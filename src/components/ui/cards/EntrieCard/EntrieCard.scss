@@ -1,0 +1,54 @@
+@import "../../../../styles/Mixins";
+@import "../../../../styles/Variables";
+
+.entrie-card__container {
+  width: 350px;
+  height: 90px;
+  padding: 24px;
+  margin-bottom: $margin-12;
+  background-color: $white-color;
+  box-shadow: $box-shadow-general;
+  border-radius: $border-radius-card;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+  gap: 12px;
+
+  @include flexbox(space-between, center);
+}
+
+.entrie-card__image {
+  width: 50px;
+  height: 50px;
+}
+
+.entrie-card__text-container {
+  width: 190px;
+  height: auto;
+}
+
+.entrie-card__date {
+  font-size: 12px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.entrie-card__text {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 25px;
+}
+
+.entrie-card__icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  .star-icon {
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &.favorite {
+      color: $secondary-color;
+    }
+  }
+}

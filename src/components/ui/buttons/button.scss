@@ -1,0 +1,55 @@
+.btn--primary,
+.btn--secondary {
+  width: 305px;
+  height: 60px;
+
+  color: var(--white-color);
+  font-size: var(--font-size-btn);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--btn-spacing);
+
+  outline: none;
+  border-style: none;
+  border-radius: var(--border-radius-btn);
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.btn--secondary {
+  box-shadow: var(--box-shadow-general);
+}
+
+.btn--outline {
+  width: 200px;
+  height: 50px;
+
+  color: grey;
+  font-size: 15px;
+  font-weight: var(--font-weight-regular);
+  text-transform: uppercase;
+  letter-spacing: var(--btn-spacing);
+
+  outline: 1px solid grey;
+  border-style: none;
+  border-radius: var(--border-radius-btn);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.btn--purple {
+  width: 200px;
+  height: 50px;
+
+  color: white;
+  font-size: 15px;
+  font-weight: var(--font-weight-regular);
+  text-transform: uppercase;
+  letter-spacing: var(--btn-spacing);
+
+  outline: none;
+  border-style: none;
+  border-radius: var(--border-radius-btn);
+  background-color: var(--primary-color);
+  cursor: pointer;
+}

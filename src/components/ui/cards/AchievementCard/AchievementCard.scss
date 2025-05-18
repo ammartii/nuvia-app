@@ -1,0 +1,40 @@
+@import "../../../../styles/Mixins";
+@import "../../../../styles/Variables";
+
+.achievement-card {
+  width: auto;
+  max-width: 300px;
+  padding: $padding-12;
+  margin-bottom: $margin-12;
+  background-color: $white-color;
+  border-radius: $border-radius-card;
+  box-shadow: $box-shadow-general;
+  @include flexbox(flex-start, center);
+
+  &.not-achieved {
+    filter: grayscale(100%);
+    opacity: 0.6;
+  }
+}
+
+.achievement-img {
+  width: 70px;
+}
+
+.achievement-text__container {
+  padding-right: $padding-12;
+  gap: 3px;
+
+  @include flexbox(center, left, column);
+}
+
+// Pasar a documento de tipografás
+.achievement-title {
+  font-size: $font-size-text;
+  font-weight: $font-weight-bold;
+}
+
+.achievement-subtitle {
+  font-size: $font-size-small-text;
+  font-weight: $font-weight-regular;
+}

@@ -1,0 +1,93 @@
+// Nav general
+$nav-height: 80px;
+$nav-bg-color: #f7f7f7;
+$nav-padding: 15px 40px 30px;
+$nav-z-index: 1000;
+
+// Iconos
+$nav-icon-size: 26px;
+$nav-icon-size-middle: 32px;
+$nav-icon-color: black;
+$nav-icon-gap: 30px;
+
+// Media Query: ≤ 430px
+$nav-padding-430: 10px 30px 25px;
+$nav-gap-430: 20px;
+$nav-icon-size-430: 28px;
+$nav-icon-size-middle-430: 30px;
+
+// Media Query: ≤ 425px
+$nav-gap-425: 18px;
+$nav-icon-width-425: 45px;
+$nav-icon-height-425: 45px;
+$nav-icon-size-425: 32px;
+$nav-icon-size-middle-425: 36px;
+
+// Media Query: ≤ 320px
+$nav-padding-320: 10px 20px 25px;
+$nav-gap-320: 15px;
+$nav-icon-width-320: 40px;
+$nav-icon-height-320: 40px;
+$nav-icon-size-320: 24px;
+$nav-icon-size-middle-320: 26px;
+
+.nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: $nav-height;
+  background-color: $nav-bg-color;
+  padding: $nav-padding;
+  box-shadow: var(--box-shadow-nav);
+  box-sizing: border-box;
+  z-index: $nav-z-index;
+}
+
+.icons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $nav-icon-gap;
+  box-sizing: border-box;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  font-size: $nav-icon-size;
+  color: $nav-icon-color;
+  transition: color 0.3s ease;
+}
+
+.icon.middle-icon .material-symbols-rounded {
+  font-size: $nav-icon-size-middle;
+}
+
+.icon.active {
+  color: var(--primary-color); // Color morado para el icono activo
+}
+
+@media (max-width: 430px) {
+  .nav {
+    height: 70px;
+    padding: $nav-padding-430;
+  }
+
+  .icons {
+    gap: $nav-gap-430;
+  }
+
+  .icon {
+    font-size: $nav-icon-size-430;
+  }
+
+  .icon.middle-icon .material-symbols-rounded {
+    font-size: $nav-icon-size-middle-430;
+  }
+}

@@ -1,0 +1,24 @@
+.icon-add {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--popup-bg-color, rgba(0, 0, 0, 0.5));
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  .icon-add-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: var(--margin-icon-add);
+    gap: var(--space-24);
+
+    padding: 16px;
+    border-radius: 12px 12px 0 0;
+  }
+}

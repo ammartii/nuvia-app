@@ -1,0 +1,20 @@
+.nav-link,
+.nav-link-outlined {
+  text-decoration: none;
+  font-size: var(--font-size-btn);
+  font-weight: var(--font-weight-regular);
+  color: var(--primary-color);
+}
+
+.nav-link-outlined {
+  padding: var(--padding-btn);
+  border: var(--border-btn-outlined);
+  border-radius: var(--border-radius-btn);
+  cursor: pointer;
+  color: var(--primary-color);
+
+  &:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+  }
+}

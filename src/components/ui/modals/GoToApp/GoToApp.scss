@@ -1,0 +1,25 @@
+.gotoapp-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--primary-color);
+  z-index: var(--z-index-gotoapp);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  text-align: center;
+  color: var(--white-color);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.modal-logo {
+  width: 200px;
+  height: auto;
+  margin-top: 10px;
+}

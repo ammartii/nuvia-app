@@ -1,0 +1,28 @@
+@import "../../../styles/Mixins";
+@import "../../../styles/Variables";
+
+.landing-header {
+  @include flexbox(space-between, center);
+  padding: $padding-header;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-index-header;
+
+  &__left {
+    @include flexbox(flex-start, center);
+  }
+
+  &__right {
+    @include flexbox(flex-start, center, row, nowrap, 1rem);
+  }
+}
+
+// Pasar a typography
+.header__logo {
+  font-size: $font-size-logo;
+  font-weight: $font-weight-extrabold;
+  text-decoration: none;
+  color: $primary-color;
+}
