@@ -4,40 +4,40 @@ import { useActiveUser } from "../../hooks/useActiveUser";
 
 import avatars from "../../constants/avatarList";
 import Button from "../../components/ui/buttons/Button";
-import "./AvatarRegistration.scss";
+import "../AuthCommon.scss";
 
 const AvatarRegistration = () => {
   const [selectedAvatar, setSelectedAvatar] = useState<string | null>(null);
   const navigate = useNavigate();
-
   const { user, updateActiveUser } = useActiveUser();
 
-  // Nuevo estado para saber que ya hemos verificado user
+  // Controla si ya se verificó la existencia del usuario activo
   const [checked, setChecked] = useState(false);
 
   useEffect(() => {
-    // Marcamos que ya verificamos user
+    // Marcar que se ha verificado `user` (aunque sea null)
     setChecked(true);
   }, [user]);
 
   useEffect(() => {
+    // Si no hay usuario activo después de verificar, redirigir al paso anterior
     if (checked && !user) {
       alert("No se encontró usuario activo. Vuelve al paso anterior.");
       navigate("/profile-registration");
     }
   }, [checked, user, navigate]);
 
+  // Mientras se verifica, mostrar mensaje de carga
   if (!checked || user === null) {
-    // Mientras carga o no hay user, mostramos mensaje o spinner
     return <p>Cargando usuario activo...</p>;
   }
 
+  // Guardar avatar seleccionado y avanzar al siguiente paso
   const handleRegister = () => {
     if (!selectedAvatar) {
       alert("Por favor, selecciona un avatar antes de continuar.");
       return;
     }
-    if (!user) return;
 
     try {
       updateActiveUser({ avatarUrl: selectedAvatar });
@@ -49,13 +49,14 @@ const AvatarRegistration = () => {
   };
 
   return (
-    <div className="avatar-registration">
-      <div className="avatar-container">
-        <h2 className="form-tittle">Elige tu avatar</h2>
-        <h3 className="form-subtittle">
+    <div className="auth-form-steps">
+      <div className="auth-form-steps__container">
+        <h2 className="auth-form__title">Elige tu avatar</h2>
+        <h3 className="auth-form__subtitle">
           Selecciona el avatar que te va a acompañar durante este viaje.
         </h3>
-        <div className="avatar-flex">
+
+        <div className="auth-form-steps__content">
           {avatars.map((src, index) => (
             <img
               key={index}
@@ -68,6 +69,7 @@ const AvatarRegistration = () => {
             />
           ))}
         </div>
+
         <Button variant="primary" onClick={handleRegister}>
           Guardar avatar
         </Button>

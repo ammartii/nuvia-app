@@ -1,0 +1,23 @@
+@import "../../../../styles/Mixins";
+@import "../../../../styles/Variables";
+
+.form-group {
+  margin-bottom: 1.5rem;
+  @include flex-column-center();
+
+  // Si el input dentro tiene focus, cambia el color del label
+  &:has(input:focus) {
+    .form-label {
+      color: $primary-color;
+    }
+  }
+}
+
+// Esto lo cambiaríamos a typography (?)
+// AuthForm.tsx
+.form-label {
+  font-weight: $font-weight-bold;
+  font-size: $font-size-input-label;
+  color: $black-color;
+  margin-bottom: 0.5rem;
+}

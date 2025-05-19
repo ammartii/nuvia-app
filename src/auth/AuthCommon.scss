@@ -1,0 +1,56 @@
+@import "../../styles/Variables";
+@import "../../styles/Mixins";
+
+// ******** REVISADO Y ORDENADO ********
+
+// ProfileRegistration + Login
+.auth-form {
+  @include size(); // width: 100%, height: 100vh
+  @include flexbox(flex-start, center);
+}
+
+.auth-form__container {
+  padding: $padding-registration;
+  @include flexbox(flex-start, stretch, column);
+}
+
+.auth-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: $margin-72 0;
+}
+
+.register-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.login-grid {
+  grid-template-columns: 1fr;
+}
+
+// Motivations Registration & Avatar Registration
+.auth-form-steps {
+  background-color: $primary-light-color;
+  text-align: center;
+  overflow: hidden;
+  @include size();
+  @include flexbox(center, center);
+}
+
+.auth-form-steps__container {
+  max-width: 1154px;
+  margin: auto;
+  padding: $padding-registration;
+  background-color: $white-color;
+  border-radius: $border-radius-big-popup;
+  box-shadow: $box-shadow-general;
+  @include size(100%, 665px);
+  @include column-center(6px);
+}
+
+.auth-form-steps__content {
+  width: auto;
+  margin: 24px;
+  @include flexbox(center, center, row, wrap);
+}

@@ -1,50 +1,48 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
-import "./Login.scss";
-import Button from "../../components/ui/buttons/Button";
-import Header from "../../components/layout/Header/Header";
-import FormInput from "../../components/ui/forms/FormInput/FormInput";
-import SideImage from "../../components/layout/SideImage/SideImage";
-
-import { getAllUsers } from "../../services/user.service";
-import { useActiveUser } from "../../hooks/useActiveUser"; // Hook para manejar usuario activo
+import { useActiveUser } from "../../hooks/useActiveUser";
 import { isValidEmail } from "../../utils/validation";
+import { getAllUsers } from "../../services/user.service";
+
+import "../AuthCommon.scss";
+import Header from "../../components/layout/Header/Header";
+import SideImage from "../../components/layout/SideImage/SideImage";
+import AuthForm from "../../components/ui/forms/AuthForm/AuthForm";
+import Button from "../../components/ui/buttons/Button";
 
 const Login = () => {
-  // Estados para el email y la contraseña
+  const navigate = useNavigate();
+  const { loginUser } = useActiveUser();
+
+  // Estados para inputs de login
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  const navigate = useNavigate();
-  const { loginUser } = useActiveUser(); // Función para actualizar usuario activo
-
-  // Función que maneja el login
+  // Lógica principal de inicio de sesión
   const handleLogin = () => {
-    // Validar formato del email
     if (!isValidEmail(email)) {
       alert("Por favor, introduce un correo electrónico válido.");
       return;
     }
 
-    // Obtener todos los usuarios
     const users = getAllUsers();
 
-    // Buscar usuario que coincida con email y password
+    // Buscar coincidencia exacta de email y password
     const matchedUser = Object.values(users).find(
       (u) => u.email === email && u.password === password
     );
 
     if (matchedUser) {
       alert("Inicio de sesión exitoso");
-      loginUser(matchedUser.id); // Actualizar usuario activo
-      navigate("/welcome"); // Redirigir a bienvenida
+      loginUser(matchedUser.id);
+      navigate("/welcome");
     } else {
       alert("Correo o contraseña incorrectos");
     }
   };
 
-  // Contenido personalizado para el header (link para registrarse)
+  // Contenido de navegación en el header (enlace a registro)
   const customHeaderContent = (
     <>
       <span className="nav-span">¿No tienes cuenta?</span>
@@ -55,20 +53,20 @@ const Login = () => {
   );
 
   return (
-    <div className="login">
+    <div className="auth-form">
       <Header rightContent={customHeaderContent} />
 
       <SideImage />
 
-      <div className="login__container">
+      <div className="auth-form__container">
         <div>
-          <h2 className="form-tittle">Inicia sesión</h2>
-          <h3 className="form-subtittle">¡Qué alegría verte de nuevo!</h3>
+          <h2 className="auth-form__title">Inicia sesión</h2>
+          <h3 className="auth-form__subtitle">¡Qué alegría verte de nuevo!</h3>
         </div>
 
-        {/* Inputs de email y contraseña */}
-        <div className="login-grid">
-          <FormInput
+        {/* Campos de entrada */}
+        <div className="auth-form__grid login-grid">
+          <AuthForm
             name="email"
             type="email"
             label="Correo electrónico"
@@ -77,7 +75,7 @@ const Login = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
 
-          <FormInput
+          <AuthForm
             name="password"
             type="password"
             label="Contraseña"
@@ -87,7 +85,7 @@ const Login = () => {
           />
         </div>
 
-        {/* Botón para iniciar sesión */}
+        {/* Botón de login */}
         <Button variant="primary" onClick={handleLogin}>
           Empezar viaje
         </Button>

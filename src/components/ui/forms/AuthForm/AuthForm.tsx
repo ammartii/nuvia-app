@@ -1,8 +1,8 @@
 import { ChangeEvent } from "react";
-import "./FormInput.scss";
+import "./AuthForm.scss";
 
-// Tipo de las props
-type FormInputProps = {
+// Props que recibe el input
+type AuthFormProps = {
   name: string;
   type: string;
   label: string;
@@ -11,18 +11,15 @@ type FormInputProps = {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
-// Componente funcional
-const FormInput = ({
+// Input de formulario reutilizable con etiqueta
+const AuthForm = ({
   name,
   type,
   label,
   placeholder,
   value,
   onChange,
-}: FormInputProps) => {
-  {
-    /* Estructura del componente */
-  }
+}: AuthFormProps) => {
   return (
     <div className="form-group">
       <label htmlFor={name} className="form-label">
@@ -41,4 +38,4 @@ const FormInput = ({
   );
 };
 
-export default FormInput;
+export default AuthForm;

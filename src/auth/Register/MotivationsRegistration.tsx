@@ -2,28 +2,31 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useActiveUser } from "../../hooks/useActiveUser";
 
-import motivations from "../../constants/motivationList";
 import { MotivationItem } from "../../models/motivation.model";
+import motivations from "../../constants/motivationList";
+
 import MotivationCard from "../../components/ui/cards/MotivationCard/MotivationCard";
 import Button from "../../components/ui/buttons/Button";
-
-import "./MotivationsRegistration.scss";
+import "../AuthCommon.scss";
 
 const MotivationsRegistration = () => {
-  // Guardamos textos seleccionados para toggle rápido
+  const navigate = useNavigate();
+  const { user, updateActiveUser } = useActiveUser();
+
+  // Estado para las motivaciones seleccionadas (por texto)
   const [selectedMotivationsTexts, setSelectedMotivationsTexts] = useState<
     string[]
   >([]);
-  const navigate = useNavigate();
 
-  const { user, updateActiveUser } = useActiveUser();
-
+  // Controla si ya se verificó el usuario activo
   const [checked, setChecked] = useState(false);
 
+  // Marcar como verificado al montar
   useEffect(() => {
     setChecked(true);
   }, [user]);
 
+  // Si no hay usuario activo tras el chequeo, redirige
   useEffect(() => {
     if (checked && !user) {
       alert("No se encontró usuario activo. Vuelve al paso anterior.");
@@ -31,24 +34,28 @@ const MotivationsRegistration = () => {
     }
   }, [checked, user, navigate]);
 
+  // Mostrar mensaje de carga mientras se valida el usuario
   if (!checked || user === null) {
     return <p>Cargando usuario activo...</p>;
   }
 
+  // Alterna selección/deselección de una motivación
   const toggleMotivation = (text: string) => {
     setSelectedMotivationsTexts((prev) =>
       prev.includes(text) ? prev.filter((mot) => mot !== text) : [...prev, text]
     );
   };
 
+  // Guardar motivaciones seleccionadas y avanzar
   const handleRegister = () => {
     if (selectedMotivationsTexts.length === 0) {
       alert("Selecciona al menos una motivación para continuar.");
       return;
     }
+
     if (!user) return;
 
-    // Convertimos los textos seleccionados a objetos MotivationItem completos
+    // Obtener los objetos MotivationItem a partir de los textos seleccionados
     const selectedMotivationsObjects: MotivationItem[] = motivations.filter(
       (motivation) => selectedMotivationsTexts.includes(motivation.text)
     );
@@ -63,15 +70,16 @@ const MotivationsRegistration = () => {
   };
 
   return (
-    <div className="motivations-registration">
-      <div className="motivations-registration__container">
-        <h2 className="form-tittle">Selecciona tu motivación</h2>
-        <h3 className="form-subtittle">
+    <div className="auth-form-steps">
+      <div className="auth-form-steps__container">
+        <h2 className="auth-form__title">Selecciona tu motivación</h2>
+        <h3 className="auth-form__subtitle">
           Selecciona las motivaciones que te refuercen y te mantengan en el
           camino.
         </h3>
 
-        <div className="motivations-flex">
+        {/* Lista de motivaciones */}
+        <div className="auth-form-steps__content">
           {motivations.map((motivation: MotivationItem, index: number) => (
             <MotivationCard
               key={index}
@@ -83,6 +91,7 @@ const MotivationsRegistration = () => {
           ))}
         </div>
 
+        {/* Botón para guardar motivaciones y continuar */}
         <Button variant="primary" onClick={handleRegister}>
           ¡Empezar viaje!
         </Button>

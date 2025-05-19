@@ -27,6 +27,14 @@ $breakpoint-xl: 1200px; // Desktop grande
 
 // ****** NUEVO ******
 
+// Tamaños
+@mixin size($width: 100%, $height: 100vh) {
+  width: $width;
+  height: $height;
+}
+// @include size();
+// @include size(width, height);
+
 // Flexbox
 @mixin flexbox(
   $justify: flex-start,
@@ -46,6 +54,7 @@ $breakpoint-xl: 1200px; // Desktop grande
   }
 }
 
+// Otras opciones de flexbox
 @mixin row-wrap($gap: 0) {
   @include flexbox(center, center, row, wrap, $gap);
 }
