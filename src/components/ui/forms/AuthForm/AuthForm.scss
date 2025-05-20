@@ -2,8 +2,8 @@
 @import "../../../../styles/Variables";
 
 .form-group {
+  @include flexbox(column, flex-start, column);
   margin-bottom: 1.5rem;
-  @include flex-column-center();
 
   // Si el input dentro tiene focus, cambia el color del label
   &:has(input:focus) {

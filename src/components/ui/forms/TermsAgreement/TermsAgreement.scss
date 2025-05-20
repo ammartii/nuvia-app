@@ -3,7 +3,7 @@
 
 .checkbox-container {
   margin-bottom: $margin-32;
-  @include flexbox(center, flex-start, row, nowrap, 0.5rem);
+  @include flexbox(flex-start, flex-start, row, nowrap, 0.5rem);
 
   // Esto que haríamos lo ponemos como clase (?)
   input[type="checkbox"] {
