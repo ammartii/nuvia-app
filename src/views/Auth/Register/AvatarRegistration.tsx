@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useActiveUser } from "../../hooks/useActiveUser";
 
-import avatars from "../../constants/avatarList";
-import Button from "../../components/ui/buttons/Button";
 import "../AuthCommon.scss";
+import { useActiveUser } from "../../../hooks/useActiveUser";
+import avatars from "../../../constants/avatarList";
+import Button from "../../../components/ui/buttons/Button";
 
 const AvatarRegistration = () => {
   const [selectedAvatar, setSelectedAvatar] = useState<string | null>(null);

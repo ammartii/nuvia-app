@@ -1,17 +1,16 @@
 import { useState, ChangeEvent } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
-import { createNewUser } from "../../services/user.service";
-import { isValidEmail } from "../../utils/validation";
-import { useActiveUser } from "../../hooks/useActiveUser";
-import { User } from "../../models/user.model";
-
 import "../AuthCommon.scss";
-import Header from "../../components/layout/Header/Header";
-import SideImage from "../../components/layout/SideImage/SideImage";
-import Button from "../../components/ui/buttons/Button";
-import AuthForm from "../../components/ui/forms/AuthForm/AuthForm";
-import TermsAgreement from "../../components/ui/forms/TermsAgreement/TermsAgreement";
+import { useActiveUser } from "../../../hooks/useActiveUser";
+import { isValidEmail } from "../../../utils/validation";
+import { User } from "../../../models/user.model";
+import { createNewUser } from "../../../services/user.service";
+import Header from "../../../components/layout/Header/Header";
+import SideImage from "../../../components/layout/SideImage/SideImage";
+import AuthForm from "../../../components/ui/forms/AuthForm/AuthForm";
+import TermsAgreement from "../../../components/ui/forms/TermsAgreement/TermsAgreement";
+import Button from "../../../components/ui/buttons/Button";
 
 const ProfileRegistration = () => {
   // Estado del formulario de registro

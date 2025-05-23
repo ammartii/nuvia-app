@@ -2,21 +2,21 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // Importa componentes
-import AvatarRegistration from "./auth/Register/AvatarRegistration";
+import AvatarRegistration from "./views/Auth/Register/AvatarRegistration";
 import Achievements from "./views/Achievements/Achievements";
 import Calendar from "./views/Calendar/Calendar";
 import Entries from "./views/Entries/Entries";
 import FeaturedDays from "./views/FeaturedDays/FeaturedDays";
 import MoodAnalysis from "./views/MoodAnalysis/MoodAnalysis";
 import Motivations from "./views/Motivations/Motivations";
-import MotivationsRegistration from "./auth/Register/MotivationsRegistration";
+import MotivationsRegistration from "./views/Auth/Register/MotivationsRegistration";
 import NotesFolder from "./views/NotesFolder/NotesFolder";
 import NotesInsideFolder from "./views/NotesInsideFolder/NotesInsideFolder";
 import PhotoGalery from "./views/PhotoGalery/PhotoGalery";
 import Profile from "./views/Profile/Profile";
 import Landing from "./views/Landing/Landing";
-import Login from "./auth/Login/Login";
-import ProfileRegistration from "./auth/Register/ProfileRegistration";
+import Login from "./views/Auth/Login/Login";
+import ProfileRegistration from "./views/Auth/Register/ProfileRegistration";
 import Welcome from "./views/Welcome/Welcome";
 import ScrollToTop from "./utils/scrollToTop";
 

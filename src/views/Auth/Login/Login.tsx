@@ -1,15 +1,14 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
-import { useActiveUser } from "../../hooks/useActiveUser";
-import { isValidEmail } from "../../utils/validation";
-import { getAllUsers } from "../../services/user.service";
-
 import "../AuthCommon.scss";
-import Header from "../../components/layout/Header/Header";
-import SideImage from "../../components/layout/SideImage/SideImage";
-import AuthForm from "../../components/ui/forms/AuthForm/AuthForm";
-import Button from "../../components/ui/buttons/Button";
+import { useActiveUser } from "../../../hooks/useActiveUser";
+import { isValidEmail } from "../../../utils/validation";
+import { getAllUsers } from "../../../services/user.service";
+import Header from "../../../components/layout/Header/Header";
+import SideImage from "../../../components/layout/SideImage/SideImage";
+import AuthForm from "../../../components/ui/forms/AuthForm/AuthForm";
+import Button from "../../../components/ui/buttons/Button";
 
 const Login = () => {
   const navigate = useNavigate();

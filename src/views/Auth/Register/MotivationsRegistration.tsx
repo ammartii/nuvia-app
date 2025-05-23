@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useActiveUser } from "../../hooks/useActiveUser";
 
-import { MotivationItem } from "../../models/motivation.model";
-import motivations from "../../constants/motivationList";
-
-import MotivationCard from "../../components/ui/cards/MotivationCard/MotivationCard";
-import Button from "../../components/ui/buttons/Button";
 import "../AuthCommon.scss";
+import { useActiveUser } from "../../../hooks/useActiveUser";
+import { MotivationItem } from "../../../models/motivation.model";
+import motivations from "../../../constants/motivationList";
+import MotivationCard from "../../../components/ui/cards/MotivationCard/MotivationCard";
+import Button from "../../../components/ui/buttons/Button";
 
 const MotivationsRegistration = () => {
   const navigate = useNavigate();

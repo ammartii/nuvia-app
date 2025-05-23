@@ -1,7 +1,5 @@
-@import "../styles/Variables";
-@import "../styles/Mixins";
-
-// ******** REVISADO Y ORDENADO ********
+@import "../../styles/Variables";
+@import "../../styles/Mixins";
 
 // ProfileRegistration + Login
 .auth-form {
@@ -10,7 +8,7 @@
 }
 
 .auth-form__container {
-  padding: $padding-registration;
+  padding: var(--padding-registration);
   @include flexbox(flex-start, stretch, column);
 }
 
@@ -31,7 +29,7 @@
 
 // Motivations Registration & Avatar Registration
 .auth-form-steps {
-  background-color: $primary-light-color;
+  background-color: var(--primary-light-color);
   text-align: center;
   overflow: hidden;
   @include size();
@@ -41,16 +39,16 @@
 .auth-form-steps__container {
   max-width: 1154px;
   margin: auto;
-  padding: $padding-registration;
-  background-color: $white-color;
-  border-radius: $border-radius-big-popup;
-  box-shadow: $box-shadow-general;
+  padding: var(--padding-registration);
+  background-color: var(--white-color);
+  border-radius: var(--border-radius-big-popup);
+  box-shadow: var(--box-shadow-general);
   @include size(100%, 665px);
   @include column-center(6px);
 }
 
 .auth-form-steps__content {
   width: auto;
-  margin: 24px;
+  margin: var(--margin-24);
   @include flexbox(center, center, row, wrap);
 }
