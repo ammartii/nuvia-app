@@ -1,11 +1,9 @@
 @import "../../styles/Mixins";
-@import "../../styles/Variables";
 
-.achievements_container {
-  background-color: $bg-color;
-  padding: 24px 24px 100px 24px;
-  width: 100%;
-  height: 100%;
+.achievements__container {
+  background-color: var(--bg-color);
+  padding: var(--padding-other-funcionalities);
 
+  @include size(100%, 100%);
   @include flexbox(flex-start, center, column, nowrap, 12px);
 }

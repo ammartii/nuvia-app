@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-import "./Motivations.scss";
 import motivations from "../../constants/motivationList";
 import MotivationCard from "../../components/ui/cards/MotivationCard/MotivationCard";
 import GoToAppModal from "../../components/ui/modals/GoToApp/GoToApp";
@@ -11,10 +10,15 @@ import { useActiveUser } from "../../hooks/useActiveUser";
 import { MotivationItem } from "../../models/motivation.model";
 
 const Motivations = () => {
+  // Obtener usuario activo
   const { user } = useActiveUser();
 
-  const [savedMotivations, setSavedMotivations] = useState<MotivationItem[]>([]);
+  // Estado local para motivaciones guardadas del usuario
+  const [savedMotivations, setSavedMotivations] = useState<MotivationItem[]>(
+    []
+  );
 
+  // Cargar motivaciones guardadas cuando cambia el usuario
   useEffect(() => {
     if (user?.motivations) {
       setSavedMotivations(user.motivations);
@@ -23,10 +27,15 @@ const Motivations = () => {
 
   return (
     <div>
+      {/* Modal para desktop */}
       <GoToAppModal />
+
+      {/* Header con título */}
       <NuviaHeader title="Motivaciones" />
 
-      <div className="motivation__container">
+      {/* Contenedor principal */}
+      <div className="views-content__container">
+        {/* Mapear lista general de motivaciones y mostrar solo las que están guardadas */}
         {motivations.map((motivation: MotivationItem, index: number) =>
           savedMotivations.some((saved) => saved.text === motivation.text) ? (
             <MotivationCard
@@ -34,12 +43,13 @@ const Motivations = () => {
               image={motivation.image}
               text={motivation.text}
               isSelected={false}
-              readonly={true}
+              readonly={true} // Solo lectura, sin interacción
             />
           ) : null
         )}
       </div>
 
+      {/* Navegación inferior */}
       <Nav />
     </div>
   );

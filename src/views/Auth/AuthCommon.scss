@@ -1,4 +1,3 @@
-@import "../../styles/Variables";
 @import "../../styles/Mixins";
 
 // ProfileRegistration + Login
@@ -16,7 +15,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-  margin: $margin-72 0;
+  margin: 72px 0;
 }
 
 .register-grid {
@@ -39,16 +38,19 @@
 .auth-form-steps__container {
   max-width: 1154px;
   margin: auto;
-  padding: var(--padding-registration);
-  background-color: var(--white-color);
-  border-radius: var(--border-radius-big-popup);
-  box-shadow: var(--box-shadow-general);
+
   @include size(100%, 665px);
-  @include column-center(6px);
+  @include card-properties(
+    var(--padding-registration),
+    var(--border-radius-big-popup),
+    6px
+  );
 }
 
 .auth-form-steps__content {
   width: auto;
-  margin: var(--margin-24);
+  margin: var(--margin-medium);
   @include flexbox(center, center, row, wrap);
 }
+
+

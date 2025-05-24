@@ -1,14 +1,21 @@
 @import "../../../../styles/Mixins";
-@import "../../../../styles/Variables";
 
-.checkbox-container {
-  margin-bottom: $margin-32;
-  @include flexbox(flex-start, flex-start, row, nowrap, 0.5rem);
+.terms__container {
+  margin-bottom: var(--margin-medium);
+  @include flexbox(flex-start, flex-start, row, nowrap, 6px);
+}
 
-  // Esto que haríamos lo ponemos como clase (?)
-  input[type="checkbox"] {
-    cursor: pointer;
-    margin-top: 1px;
-    border-color: $grey-color;
+.terms__checkbox {
+  cursor: pointer;
+  margin-top: 1px;
+  border-color: var(--grey-color);
+}
+
+// Pendiente reubicar (?)
+.terms__text {
+  @include font-xsmall-medium();
+
+  a {
+    color: var(--grey-color);
   }
 }

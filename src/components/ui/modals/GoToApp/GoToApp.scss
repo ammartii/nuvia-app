@@ -1,24 +1,35 @@
-.gotoapp-modal {
+@import "../../../../styles/Mixins";
+
+.gotoapp__modal {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
   background-color: var(--primary-color);
   z-index: var(--z-index-gotoapp);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include size();
+  @include column-center();
 }
 
-.modal-content {
+.gotoapp__content {
   text-align: center;
+  padding: var(--padding-general);
+  border-radius: var(--border-radius-general);
   color: var(--white-color);
-  padding: 20px;
-  border-radius: 12px;
 }
 
-.modal-logo {
+
+// Pendiente reubicar (?)
+.gotoapp__text {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-bold);
+  color: var(--white-color);
+}
+
+.gotoapp__text span {
+  font-weight: var(--font-weight-extralight);
+}
+
+.gotoapp__logo {
   width: 200px;
   height: auto;
   margin-top: 10px;

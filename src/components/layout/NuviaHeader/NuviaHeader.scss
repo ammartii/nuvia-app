@@ -1,28 +1,23 @@
 @import "../../../styles/Mixins";
-@import "../../../styles/Variables";
 
 .nuvia-header__container {
-  padding-top: 48px;
-  background-color: $bg-color;
+  padding-top: var(--padding-nuvia-header);
+  background-color: var(--bg-color);
 }
 
 .profile__header {
   height: 64px;
-  padding: 12px 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: var(--padding-general-items);
+  @include flexbox(space-between, center);
 }
 
 .profile__cloud-icon {
-  width: 50px;
-  height: 50px;
   background-image: url("../../../assets/images/nuvia-clouds.png");
   background-size: cover;
+  @include size(50px, 50px);
 }
 
 .profile__icons {
-  display: flex;
   width: 60px;
   display: flex;
   justify-content: center;

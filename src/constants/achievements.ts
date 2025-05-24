@@ -5,13 +5,9 @@ export interface Achievement {
   dateAchieved?: string | null;
 }
 
+const userRegistrationDate = new Date().toISOString().split("T")[0]; // yyyy-mm-dd
+
 export const achievementsData: Achievement[] = [
-  {
-    title: "Primer registro",
-    subtitle: "Has escrito tu primera nota emocional",
-    achieved: true,
-    dateAchieved: "2025-05-10",
-  },
   {
     title: "Constancia semanal",
     subtitle: "Has usado la app 7 días seguidos",
@@ -22,19 +18,19 @@ export const achievementsData: Achievement[] = [
     title: "Propósito establecido",
     subtitle: "Has priorizado tu primer propósito personal",
     achieved: true,
-    dateAchieved: "2025-05-12",
+    dateAchieved: userRegistrationDate,
   },
   {
     title: "Motivación activa",
     subtitle: "Has seleccionado tus motivaciones para mantenerte enfocado/a",
-    achieved: false,
-    dateAchieved: null,
+    achieved: true,
+    dateAchieved: userRegistrationDate,
   },
   {
     title: "Avatar elegido",
     subtitle: "Has personalizado tu perfil con un avatar",
     achieved: true,
-    dateAchieved: "2025-05-13",
+    dateAchieved: userRegistrationDate,
   },
   {
     title: "Informe generado",
@@ -45,8 +41,8 @@ export const achievementsData: Achievement[] = [
   {
     title: "Día importante registrado",
     subtitle: "Has marcado tu primer evento o día especial",
-    achieved: true,
-    dateAchieved: "2025-05-14",
+    achieved: false,
+    dateAchieved: null,
   },
   {
     title: "Reflexión diaria",
@@ -58,6 +54,12 @@ export const achievementsData: Achievement[] = [
     title: "Primer logro desbloqueado",
     subtitle: "Has completado tu primer logro dentro de la app",
     achieved: true,
-    dateAchieved: "2025-05-11",
+    dateAchieved: userRegistrationDate,
+  },
+  {
+    title: "Primer registro",
+    subtitle: "Has escrito tu primera nota emocional",
+    achieved: true,
+    dateAchieved: userRegistrationDate,
   },
 ];

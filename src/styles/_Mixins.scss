@@ -1,41 +1,10 @@
-// Breakpoints
-$breakpoint-sm: 576px; // Móvil pequeño
-$breakpoint-md: 768px; // Móvil grande, tablet en orientación vertical
-$breakpoint-lg: 1024px; // Tablet en orientación horizontal
-$breakpoint-xl: 1200px; // Desktop grande
-
-// Mixin para media queries
-@mixin respond-to($breakpoint) {
-  @if $breakpoint == sm {
-    @media (max-width: $breakpoint-sm) {
-      @content;
-    }
-  } @else if $breakpoint == md {
-    @media (max-width: $breakpoint-md) {
-      @content;
-    }
-  } @else if $breakpoint == lg {
-    @media (max-width: $breakpoint-lg) {
-      @content;
-    }
-  } @else if $breakpoint == xl {
-    @media (max-width: $breakpoint-xl) {
-      @content;
-    }
-  }
-}
-
-// ****** NUEVO ******
-
-// Tamaños
+// Mixin para asignar ancho y alto
 @mixin size($width: 100%, $height: 100vh) {
   width: $width;
   height: $height;
 }
-// @include size();
-// @include size(width, height);
 
-// Flexbox
+// Mixin base para flexbox
 @mixin flexbox(
   $justify: flex-start,
   $align: stretch,
@@ -54,46 +23,165 @@ $breakpoint-xl: 1200px; // Desktop grande
   }
 }
 
-// Otras opciones de flexbox
+// Flexbox con fila y wrap
 @mixin row-wrap($gap: 0) {
   @include flexbox(center, center, row, wrap, $gap);
 }
 
+// Flexbox con columna y centrado
 @mixin column-center($gap: 0) {
   @include flexbox(center, center, column, nowrap, $gap);
 }
 
+// Flexbox columna, inicio vertical y centrado horizontal
 @mixin flex-column-center($gap: 0) {
   @include flexbox(flex-start, center, column, nowrap, $gap);
 }
 
-// Eliminar bordes
+// Flexbox columna, inciio vertical e izquierda vertical
+@mixin flex-column-left($gap: 0) {
+  @include flexbox(flex-start, left, column, nowrap, $gap);
+}
+
+// =====================
+// Estilos Generales
+// =====================
+
+// Eliminar bordes y outlines
 @mixin remove-border {
   border: none;
   outline: none;
 }
 
+// Bordes inputs
+@mixin input-border($border-color: var(--black-color)) {
+  padding: var(--padding-input);
+  border: var(--border-form-input);
+  border-color: $border-color;
+  border-radius: var(--border-radius-general);
+  outline: none;
+}
+
+// =====================
 // Modales
+// =====================
+
+// Overlay del modal con fondo oscuro y centrado
 @mixin modal-overlay {
   width: 100vw;
   height: 100vh;
   position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: $z-index-overlay;
+  inset: 0; // equivale a top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: var(--z-index-overlay);
 
   @include flexbox(center, center);
 }
 
+// Contenido del modal con padding, fondo blanco y bordes redondeados
 @mixin modal-content {
   max-width: 350px;
   min-height: 500px;
   padding: 24px;
-  background-color: $white-color;
-  border-radius: $border-radius-popup;
+  background-color: var(--white-color);
+  border-radius: var(--border-radius-card);
   text-align: center;
   position: relative;
 
   @include flex-column-center(24px);
+}
+
+// =====================
+// Vistas Principales y Secundarias
+// =====================
+
+// Vista principal con fondo y espaciado estándar
+@mixin principal-views($height: 100vh) {
+  height: $height;
+  background-color: var(--bg-color);
+  padding: 12px 24px 100px;
+  @include flex-column-center(24px);
+}
+
+// Vista secundaria dentro de perfil con espaciado menor
+@mixin profile-subviews($height: 100vh) {
+  height: $height;
+  background-color: var(--bg-color);
+  padding: 12px 24px 100px;
+  @include flex-column-center(12px);
+}
+
+// =====================
+// Cards
+// =====================
+
+// Propiedades base para tarjetas (cards)
+@mixin card-properties(
+  $padding: var(--padding-card),
+  $border-radius: var(--border-radius-general),
+  $gap: 24px
+) {
+  width: 100%;
+  padding: $padding;
+  background-color: var(--white-color);
+  border-radius: $border-radius;
+  box-shadow: var(--box-shadow-general);
+  @include flexbox(center, center, column, nowrap, $gap);
+}
+
+// Other card properties
+@mixin other-card-properties() {
+  padding: 24px;
+  margin-bottom: 12px;
+  background-color: var(--white-color);
+  box-shadow: var(--box-shadow-general);
+  border-radius: var(--border-radius-general);
+  transition: var(--transition-card);
+  cursor: pointer;
+}
+
+// =====================
+// Mood Analysis
+// =====================
+
+// Base para tarjetas de análisis de estado de ánimo con scroll horizontal opcional
+@mixin mood-analysis-card__base($wrap) {
+  width: 100%;
+  padding: var(--padding-12);
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include flexbox(space-evenly, center, row, $wrap, 24px);
+}
+
+// TIPOGRAFÍAS
+
+// Incluido en: Terms Agreement (1)
+// cambiar el medium por regular
+@mixin font-xsmall-medium($color: var(--grey-color)) {
+  color: $color;
+  font-size: var(--font-size-xsmall);
+  font-weight: var(--font-weight-regular);
+}
+
+// Incluido en AuthForm (2) + AuthCommon (1)
+@mixin font-small-black($font-weight: var(--font-weight-regular)) {
+  color: var(--black-color);
+  font-size: var(--font-size-small);
+  font-weight: $font-weight;
+}
+
+// Cambios generales tipografía
+// No incluido
+@mixin text-properties(
+  $color: var(--black-color),
+  $font-size: var(--font-size-small),
+  $font-weight: var(--font-weight-medium)
+) {
+  color: $color;
+  font-size: $font-size;
+  font-weight: $font-weight;
 }

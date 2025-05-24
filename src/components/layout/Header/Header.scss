@@ -3,12 +3,12 @@
 
 .landing-header {
   @include flexbox(space-between, center);
-  padding: $padding-header;
+  padding: var(--padding-header);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: $z-index-header;
+  z-index: var(--z-index-header);
 
   &__left {
     @include flexbox(flex-start, center);
@@ -21,8 +21,8 @@
 
 // Pasar a typography
 .header__logo {
-  font-size: $font-size-logo;
-  font-weight: $font-weight-extrabold;
+  font-size: var(--font-size-logo);
+  font-weight: var(--font-weight-extrabold);
   text-decoration: none;
-  color: $primary-color;
+  color: var(--primary-color);
 }

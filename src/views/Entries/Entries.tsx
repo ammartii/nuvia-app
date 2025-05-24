@@ -1,24 +1,26 @@
 import { useState, useEffect } from "react";
 import "./Entries.scss";
+
 import Nav from "../../components/layout/Nav/Nav";
 import NuviaHeader from "../../components/layout/NuviaHeader/NuviaHeader";
-import EntrieCard from "../../components/ui/cards/EntrieCard/EntrieCard";
 import GoToAppModal from "../../components/ui/modals/GoToApp/GoToApp";
 import MonthSelector from "../../components/layout/MonthSelector/MonthSelector";
+import EntryCard from "../../components/ui/cards/EntryCard/EntryCard";
 import DailyQuiz from "../../components/ui/modals/DailyQuiz/DailyQuiz";
-import { Entrie } from "../../models/entrie.model";
+
+import { Entry } from "../../models/entry.model";
 import { useActiveUser } from "../../hooks/useActiveUser";
 
 const Entries = () => {
   const { user, updateActiveUser } = useActiveUser();
 
-  // Estado para mostrar/ocultar DailyQuiz modal
+  // Estado para controlar visibilidad del quiz diario
   const [showQuiz, setShowQuiz] = useState(false);
 
-  // Estado local para manejar las entradas (se sincroniza con user)
-  const [entries, setEntries] = useState<Entrie[]>([]);
+  // Entradas locales del usuario (sincronizadas con el hook)
+  const [entries, setEntries] = useState<Entry[]>([]);
 
-  // Al montar o cuando cambia user, cargar entradas del user activo
+  // Carga inicial de entradas desde el usuario activo
   useEffect(() => {
     if (user?.entries) {
       setEntries(user.entries);
@@ -27,37 +29,42 @@ const Entries = () => {
     }
   }, [user]);
 
-  // Función para añadir nueva entrada y actualizar user activo
-  const addNewEntrie = (newEntrie: Entrie) => {
+  // Añadir nueva entrada y actualizar el usuario activo
+  const addNewEntrie = (newEntrie: Entry) => {
     if (!user) return;
 
     const updatedEntries = [newEntrie, ...(user.entries || [])];
     setEntries(updatedEntries);
-
-    // Actualiza usuario activo con las entradas nuevas
     updateActiveUser({ entries: updatedEntries });
   };
 
+  // Mostrar mensaje de carga si el usuario aún no está disponible
   if (!user) {
     return <p>Cargando usuario activo...</p>;
   }
 
   return (
-    <div>
+    <>
+      {/* Modal sugerido para móvil */}
       <GoToAppModal />
+
+      {/* Cabecera con título de sección */}
       <NuviaHeader title="Entries" />
 
-      <div className="entries-page">
+      <div className="entries__page">
+        {/* Selector del mes (opcionalmente funcional) */}
         <MonthSelector />
 
+        {/* Botón para iniciar quiz */}
         <section className="start-quiz" onClick={() => setShowQuiz(true)}>
           <span className="material-symbols-rounded">add_circle</span>
           <p>¿Cómo te sientes hoy?</p>
         </section>
 
+        {/* Listado de entradas */}
         <div className="entries__container">
           {entries.map((entry) => (
-            <EntrieCard
+            <EntryCard
               key={entry.id}
               id={entry.id}
               image={entry.image}
@@ -68,6 +75,7 @@ const Entries = () => {
         </div>
       </div>
 
+      {/* Modal de quiz diario */}
       {showQuiz && (
         <DailyQuiz
           onClose={() => setShowQuiz(false)}
@@ -75,8 +83,9 @@ const Entries = () => {
         />
       )}
 
+      {/* Barra de navegación inferior */}
       <Nav />
-    </div>
+    </>
   );
 };
 

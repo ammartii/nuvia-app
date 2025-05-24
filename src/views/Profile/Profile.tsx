@@ -83,7 +83,7 @@ const Profile = () => {
               label: "Galería de fotos",
               link: "/photo-gallery",
             },
-            { icon: icons.Reports, label: "Informes", link: "#" },
+            { icon: icons.Reports, label: "Informes", link: "/reports" },
             {
               icon: icons.Achievements,
               label: "Logros",

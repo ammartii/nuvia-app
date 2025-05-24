@@ -5,16 +5,17 @@ import DailyQuizStep1 from "./DailyQuizStep1";
 import DailyQuizStep2 from "./DailyQuizStep2";
 import DailyQuizStep3 from "./DailyQuizStep3";
 import Button from "../../buttons/Button";
-import useBodyScrollLock from "../../../../utils/bodyScrollLock";
-import { Entrie } from "../../../../models/entrie.model";
+import useBodyScrollLock from "../../../../hooks/useBodyScrollLock";
+import { Entry } from "../../../../models/entry.model";
 import moodList from "../../../../constants/moodList";
 
 type DailyQuizProps = {
   onClose: () => void;
-  addNewEntrie: (newEntrie: Entrie) => void;
+  addNewEntrie: (newEntrie: Entry) => void;
+  openModal: (modal: "addnote") => void;
 };
 
-const DailyQuiz = ({ onClose, addNewEntrie }: DailyQuizProps) => {
+const DailyQuiz = ({ onClose, addNewEntrie, openModal }: DailyQuizProps) => {
   // Bloquea el scroll del body mientras el modal esté abierto
   useBodyScrollLock();
 
@@ -48,7 +49,7 @@ const DailyQuiz = ({ onClose, addNewEntrie }: DailyQuizProps) => {
       month: "long",
     });
 
-    const newEntrie: Entrie = {
+    const newEntrie: Entry = {
       id,
       image: mood.image,
       text: mood.text,
@@ -87,13 +88,35 @@ const DailyQuiz = ({ onClose, addNewEntrie }: DailyQuizProps) => {
             setSelectedActivities={setSelectedActivities}
           />
         )}
-        {step === 3 && <DailyQuizStep3 onFinish={handleFinish} />}
+        {step === 3 && (
+          <DailyQuizStep3
+            onFinish={handleFinish}
+            onAddNote={() => openModal("addnote")}
+          />
+        )}
       </div>
 
       {/* Botón para avanzar, oculto en último paso */}
       <div className="dailyquiz__actions">
         {step < 3 && (
-          <Button variant="primary" onClick={() => setStep(step + 1)}>
+          <Button
+            variant="primary"
+            onClick={() => {
+              if (step === 1 && selectedMoodIndex === null) {
+                alert(
+                  "Por favor, selecciona un estado de ánimo para continuar."
+                );
+                return;
+              }
+              if (step === 2 && selectedActivities.length === 0) {
+                alert(
+                  "Por favor, selecciona al menos una actividad para continuar."
+                );
+                return;
+              }
+              setStep(step + 1);
+            }}
+          >
             Siguiente
           </Button>
         )}

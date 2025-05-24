@@ -2,12 +2,12 @@
 @import "../../styles/Variables";
 
 .profile-container {
-  padding: 12px 24px;
   display: flex;
   flex-direction: column;
   gap: 12px;
+
   background-color: var(--bg-color);
-  padding-bottom: 100px;
+  padding: 12px 24px 100px;
 }
 
 // Section Premium Banner

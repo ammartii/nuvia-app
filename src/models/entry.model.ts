@@ -1,4 +1,4 @@
-export interface Entrie {
+export interface Entry {
   id: string;
   image: string;
   text: string;

@@ -1,6 +1,6 @@
 import { Folder } from "./folder.model";
 import { Note } from "./note.model";
-import { Entrie } from "./entrie.model";
+import { Entrie } from "./entry.model";
 import { MotivationItem } from "./motivation.model";
 
 export interface User {

@@ -18,7 +18,7 @@
 
   background-color: #fcf9da;
   border: 1px solid #fddb77;
-  border-radius: $border-radius-card;
+  border-radius: var(--border-radius-general);
 
   display: flex;
   flex-direction: column;
@@ -42,7 +42,7 @@
 
 .add-note__input {
   font-size: 18px;
-  font-weight: $font-weight-bold;
+  font-weight: bold;
 }
 
 .add-note__select {
@@ -50,7 +50,7 @@
   width: 35%;
   background-color: transparent;
   font-size: 14px;
-  font-weight: $font-weight-regular;
+  font-weight: normal;
   padding: 0;
   margin: 0;
   margin-left: -4px;
@@ -70,8 +70,8 @@
 .add-note__textarea {
   margin-top: 24px;
   height: 130px;
-  font-size: $font-size-text;
-  font-weight: $font-weight-regular;
+  font-size: 12px;
+  font-weight: normal;
 }
 
 .add-note__buttons {

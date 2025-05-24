@@ -84,8 +84,7 @@ const NotesFolder = () => {
             <div className="folders">
               {folders.length === 0 ? (
                 <p className="no-things-text">
-                  No tienes carpetas todavía. <br />
-                  Añade una nueva carpeta.
+                  No tienes carpetas creadas todavía.
                 </p>
               ) : (
                 folders.map((folder) => (

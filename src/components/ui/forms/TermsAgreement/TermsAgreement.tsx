@@ -6,17 +6,18 @@ type Props = {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
+// Componente para aceptar términos y condiciones.
 const TermsAgreement = ({ checked, onChange }: Props) => {
   return (
-    <label className="checkbox-container">
-      <input type="checkbox" checked={checked} onChange={onChange} />
-      <span className="text-termsagreement">
+    <label className="terms__container">
+      <input className="terms__checkbox" type="checkbox" checked={checked} onChange={onChange} />
+      <span className="terms__text">
         Acepto los{" "}
-        <a href="#" target="_blank" className="a-termsagreement">
+        <a href="#" target="_blank">
           Términos y condiciones
         </a>{" "}
         y estoy de acuerdo con las{" "}
-        <a href="#" target="_blank" className="a-termsagreement">
+        <a href="#" target="_blank">
           Políticas de Privacidad
         </a>
         .

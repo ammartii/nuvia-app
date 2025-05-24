@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./AddFolder.scss";
 
 import folderImage from "../../../../assets/images/folder.png";
-import useBodyScrollLock from "../../../../utils/bodyScrollLock";
+import useBodyScrollLock from "../../../../hooks/useBodyScrollLock";
 import Button from "../../buttons/Button";
 
 type AddFolderProps = {

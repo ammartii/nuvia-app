@@ -16,6 +16,7 @@ import PhotoGalery from "./views/PhotoGalery/PhotoGalery";
 import Profile from "./views/Profile/Profile";
 import Landing from "./views/Landing/Landing";
 import Login from "./views/Auth/Login/Login";
+import Reports from "./views/Reports/Reports";
 import ProfileRegistration from "./views/Auth/Register/ProfileRegistration";
 import Welcome from "./views/Welcome/Welcome";
 import ScrollToTop from "./utils/scrollToTop";
@@ -52,6 +53,7 @@ function App() {
             path="/profile-registration"
             element={<ProfileRegistration />}
           />
+          <Route path="/reports" element={<Reports />} />
           <Route path="/welcome" element={<Welcome />} />
         </Routes>
       </div>

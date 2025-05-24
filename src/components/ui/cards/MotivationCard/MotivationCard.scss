@@ -1,46 +1,39 @@
 @import "../../../../styles/Mixins";
-@import "../../../../styles/Variables";
 
 .motivation-card {
-  width: auto;
   max-width: 300px;
-  height: 74px;
-  padding: $padding-12;
-  margin-bottom: $margin-12;
-  background-color: $white-color;
-  border: 1px solid $grey-color;
-  border-radius: $border-radius-card;
+  padding: var(--padding-card);
+  margin: var(--margin-card);
+  background-color: var(--white-color);
+  border: var(--border-motivation-card);
+  border-radius: var(--border-radius-card);
+  transition: var(--transition-card);
   cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
-
+  @include size(auto, 80px);
   @include flexbox(flex-start, center);
 
   &:hover {
     transform: scale(1.1);
-    box-shadow: $box-shadow-general;
-    border: 2px solid $secondary-color;
+    box-shadow: var(--box-shadow-general);
+    border: var(--border-hover);
   }
 
   &.readonly {
     pointer-events: none;
     border: none;
-    box-shadow: $box-shadow-general;
+    box-shadow: var(--box-shadow-general);
   }
 }
 
 .motivation-card.selected {
-  border: 2px solid $secondary-color;
+  border: var(--border-hover);
 }
 
+// creo que no se usa
+/*
 .motivations-flex {
-  @include flexbox(space-evenly, stretch, row, wrap, 16px);
   margin-top: 20px;
   padding: 0 16px;
+  @include flexbox(space-evenly, stretch, row, wrap, 16px);
 }
-
-// Pasar a documento tipografías
-.text-motivation-card {
-  font-size: $font-size-text;
-  font-weight: $font-weight-regular;
-  text-align: left;
-}
+  */

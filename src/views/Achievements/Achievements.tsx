@@ -1,30 +1,32 @@
 import { useState } from "react";
+
 import "./Achievements.scss";
 import Nav from "../../components/layout/Nav/Nav";
 import NuviaHeader from "../../components/layout/NuviaHeader/NuviaHeader";
 import GoToAppModal from "../../components/ui/modals/GoToApp/GoToApp";
-import AchievementCard from "../../components/ui/cards/AchievementCard/AchievementCard";
 import AchievementPopup from "../../components/ui/modals/AchievementPopup/AchievementPopup";
+import AchievementCard from "../../components/ui/cards/AchievementCard/AchievementCard";
 import { achievementsData, Achievement } from "../../constants/achievements";
 
 const Achievements = () => {
-  const [selectedAchievement, setSelectedAchievement] =
-    useState<Achievement | null>(null);
+  // Estado para controlar el logro seleccionado en el popup
+  const [selectedAchievement, setSelectedAchievement] = useState<Achievement | null>(null);
 
+  // Ordena los logros para mostrar primero los logrados
   const sortedAchievements = [...achievementsData].sort((a, b) =>
     a.achieved === b.achieved ? 0 : a.achieved ? -1 : 1
   );
 
   return (
     <div>
-      {/* Modal para evitar ver la app en desktop */}
+      {/* Modal para redirigir si se accede desde desktop */}
       <GoToAppModal />
 
-      {/* Header personalizado */}
+      {/* Encabezado de la página */}
       <NuviaHeader title="Logros" />
 
-      {/* Contenido de la página */}
-      <div className="achievements_container">
+      {/* Contenedor de las tarjetas de logros */}
+      <div className="achievements__container">
         {sortedAchievements.map((ach, idx) => (
           <div
             key={idx}
@@ -40,7 +42,7 @@ const Achievements = () => {
         ))}
       </div>
 
-      {/* Popup de logro */}
+      {/* Popup con los detalles del logro seleccionado */}
       {selectedAchievement && (
         <AchievementPopup
           achievement={selectedAchievement}
@@ -48,7 +50,7 @@ const Achievements = () => {
         />
       )}
 
-      {/* Navegador */}
+      {/* Barra de navegación inferior */}
       <Nav />
     </div>
   );

@@ -1,82 +1,31 @@
 @import "../../styles/Mixins";
-@import "../../styles/Variables";
 
 .mood-analysis-page {
-  background-color: $bg-color;
-  padding: 12px 24px;
-  padding-bottom: 100px;
-  margin-bottom: 60px;
-  width: 100%;
-  height: 100vh;
-  @include flexbox(flex-start, center, column, nowrap, 24px);
+  @include principal-views();
 }
 
-// Selector de analisis
 .analysis-selector {
   @include flexbox(flex-start, center, row, nowrap, 96px);
 
   .selected {
     text-decoration: underline;
-    color: $primary-color;
+    color: var(--primary-color);
   }
 }
 
-// Mood analysis
-.mood-card {
-  width: 100%;
-
-  padding: 24px;
-
-  background-color: $white-color;
-  border-radius: $border-radius-card;
-  box-shadow: $box-shadow-general;
-
-  @include flexbox(center, center, column, nowrap, 24px);
+.mood-analysis__container {
+  @include card-properties(24px);
 }
 
-// Mover a archivo tipografías
-.mood-card__title {
-  font-size: 18px;
-  font-weight: bold;
+.mood-analysis-card__flow {
+  @include mood-analysis-card__base(nowrap);
 }
 
-.mood-card__flow {
-  width: 100%;
-  padding: $padding-12;
-  overflow-x: auto;
-
-  @include flexbox(space-evenly, center, row, nowrap, 24px);
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
+.mood-analysis-card__ranking {
+  @include mood-analysis-card__base(wrap);
 }
 
-.mood-card__ranking {
-  width: 100%;
-  padding: $padding-12;
-  overflow-x: auto;
-  @include flexbox(space-evenly, center, row, wrap, 24px);
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-.mood-icon {
+.mood-icon__container {
   min-width: 80px;
-
   @include flexbox(center, center, column, nowrap);
-}
-
-// mover al archivo de imagenes
-.mood-icon__image {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-}
-
-// mover al archivo de tipografía ??
-.mood-icon__count {
-  font-size: 12px;
 }

@@ -116,9 +116,13 @@ const ProfileRegistration = () => {
 
   return (
     <div className="auth-form">
+      {/* Header desktop */}
       <Header rightContent={customHeaderContent} />
+
+      {/* Imagen latera*/}
       <SideImage />
 
+      {/* Contenido página */}
       <main className="auth-form__container">
         <header>
           <h2 className="auth-form__title">Crea tu cuenta gratis</h2>

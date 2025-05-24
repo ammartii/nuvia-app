@@ -1,5 +1,4 @@
 @import "../../../../styles/Mixins";
-@import "../../../../styles/Variables";
 
 .popup-overlay {
   @include modal-overlay;
@@ -15,28 +14,5 @@
   right: 12px;
   background: transparent;
   border: none;
-
   cursor: pointer;
-}
-
-.achievement-tittle {
-  font-size: $font-size-popup-title;
-  font-weight: $font-weight-bold;
-  margin-top: 20px;
-}
-
-.achievement-subtittle {
-  font-size: $font-size-text;
-  font-weight: $font-weight-regular;
-  padding: $padding-12;
-}
-
-.popup-icon {
-  width: 200px;
-  height: 200px;
-}
-
-.achievement-date {
-  margin-top: 20px;
-  margin-bottom: 20px;
 }

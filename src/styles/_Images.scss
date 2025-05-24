@@ -1,3 +1,8 @@
+@import "./Mixins";
+
+// =====================
+// Avatar
+// =====================
 .avatar-image {
   width: 125px;
   height: 125px;
@@ -19,6 +24,9 @@
   box-shadow: var(--box-shadow-general);
 }
 
+// =====================
+// Motivation Card Image
+// =====================
 .img-motivation-card {
   width: 70px;
   height: 70px;
@@ -26,12 +34,10 @@
   margin-right: 12px;
 }
 
-// Welcome
-.nuvia-girl {
-  width: 440px;
-}
 
-// ************* NUEVOS *************
+// =====================
+// Folder Images
+// =====================
 .add-folder__image {
   width: 150px;
   height: 150px;
@@ -40,4 +46,46 @@
 .folder-card__image {
   width: 100px;
   height: 100px;
+}
+
+// =====================
+// Achievement Card Images
+// =====================
+.achievement-card__img {
+  width: 70px;
+}
+
+.achievement-popup__img {
+  width: 200px;
+  height: 200px;
+}
+
+// =====================
+// Photo Gallery
+// =====================
+.photo-gallery__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  object-fit: cover;
+  @include size(100%, 100%);
+}
+
+.photo-gallery-modal__image {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: var(--border-radius-general);
+  box-shadow: var(--box-shadow-general);
+  user-select: none;
+}
+
+
+// =====================
+// Mood Analysis
+// =====================
+.mood-icon__image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
 }

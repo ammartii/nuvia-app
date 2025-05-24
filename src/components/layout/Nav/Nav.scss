@@ -1,14 +1,16 @@
+@import "../../../styles/Mixins";
+
 .nav {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
-  height: 80px;
-  background-color: #f7f7f7;
-  padding: 15px 40px 30px;
+
+  padding: var(--padding-nav);
+  background-color: var(--white-color);
   box-shadow: var(--box-shadow-nav);
-  box-sizing: border-box;
-  z-index: 1000;
+  z-index: var(--z-index-nav);
+
+  @include size(100%, 80px);
 }
 
 .icons {
@@ -17,19 +19,16 @@
   justify-content: space-between;
   align-items: center;
   gap: 30px;
-  box-sizing: border-box;
 }
 
 .icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
   font-size: 26px;
-  color: black;
-  transition: color 0.3s ease;
+  color: var(--black-color);
+  transition: var(--transition-img);
+  cursor: pointer;
+
+  @include size(50px, 50px);
+  @include flexbox(center, center);
 }
 
 .icon.middle-icon .material-symbols-rounded {
@@ -37,9 +36,10 @@
 }
 
 .icon.active {
-  color: var(--primary-color); /* Color morado para el icono activo */
+  color: var(--primary-color);
 }
 
+// Ajustes para dispositivos
 @media (max-width: 430px) {
   .nav {
     height: 70px;

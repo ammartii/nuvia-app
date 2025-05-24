@@ -1,0 +1,44 @@
+@import "../../../../styles/Mixins";
+
+.entrie-card__container {
+  max-width: 350px;
+  @include size(100%, 90px);
+  @include other-card-properties;
+  @include flexbox(space-between, center, row, nowrap, 12px);
+}
+
+// Pendiente reubicar (?)
+.entrie-card__image {
+  @include size(50px, 50px);
+}
+
+.entrie-card__text-container {
+  width: 190px;
+  height: auto;
+}
+
+.entrie-card__date {
+  text-transform: uppercase;
+  @include font-xsmall-medium(var(--black-color));
+}
+
+.entrie-card__text {
+  font-size: var(--font-size-big);
+  font-weight: var(--font-weight-bold);
+  line-height: 25px;
+}
+
+.entrie-card__icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  .star-icon {
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &.favorite {
+      color: var(--secondary-color);
+    }
+  }
+}

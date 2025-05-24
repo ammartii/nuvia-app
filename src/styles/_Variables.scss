@@ -1,14 +1,16 @@
 #root {
   margin: 0 auto;
 
+  // VARIABLES CSS
+
   /* Color */
   --white-color: #ffffff;
-  --bg-color: #f7f7f7;
-  --grey-color: #808080;
   --black-color: #18171c;
+  --grey-color: #808080;
   --primary-color: #838bc5;
   --primary-light-color: #dcdeef;
   --secondary-color: #fdc93a;
+  --bg-color: #f7f7f7;
   --nav-bg-color: #f7f7f7;
   --popup-bg-color: rgba(0, 0, 0, 0.7);
 
@@ -18,69 +20,101 @@
   --space-24: 24px;
   --space-32: 32px;
 
-  /* Font size */
-  --font-size-tittle: 28px;
-  --font-size-tittle-app: 18px;
-  --font-size-subtittle: 16px;
-  --font-size-text: 14px;
-  --font-size-label: 12px;
-  --font-size-icons: 30px;
-
-  --font-size-logo: 24px;
-  --font-size-logo-app: 20px;
-  --font-size-btn: 15px;
-  --font-size-form-tittle: 48px;
-  --font-size-form-subtittle: 28px;
-  --font-size-input-label: 14px;
-
-  /* Text spacing */
-  --btn-spacing: 0.9px;
-
-  /* Line height */
-  --line-height-tittle: 40px;
-  --line-height-subtittle: 25px;
-
-  /* Font weight */
-  --font-weight-thin: 100;
-  --font-weight-extralight: 200;
-  --font-weight-light: 300;
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-  --font-weight-extrabold: 800;
-  --font-weight-black: 900;
-
   /* Padding */
+  --padding-12: 12px;
   --padding-24: 24px;
   --padding-32: 32px;
   --padding-64: 64px;
 
-  --padding-header: 24px 72px;
   --padding-btn: 6px 12px;
-  --padding-input: 24px 12px;
   --padding-card: 12px 24px;
+  --padding-header: 24px 72px;
+  --padding-input: 24px 12px;
+
+  --padding-other-funcionalities: 24px 24px 100px 24px;
+
+  // Padding - new
+  --padding-general: 12px;
+  --padding-general-items: 12px 24px;
   --padding-registration: 64px;
+  --padding-welcome: 60px 24px;
+  --padding-nuvia-header: 48px;
+  --padding-nav: 15px 40px 30px;
+  --padding-views: 12px 24px 100px;
 
   /* Margin */
   --margin-12: 12px;
   --margin-24: 24px;
   --margin-32: 32px;
   --margin-72: 72px;
+  --margin-card: 12px;
   --margin-icon-add: 115px;
   --margin-landing: 0 72px 0 72px;
   --margin-subtittle: 12px;
 
+  // Margin - new
+  --margin-small: 6px;
+  --margin-regular: 12px;
+  --margin-medium: 24px;
+  --margin-large: 32px;
+  --margin-xlarge: 48px;
+
+  /* Font size */
+  --font-size-input-label: 14px;
+  --font-size-text: 14px;
+  --font-size-btn: 15px;
+  --font-size-subtittle: 16px;
+  --font-size-tittle-app: 18px;
+  --font-size-logo-app: 20px;
+  --font-size-logo: 24px;
+  --font-size-tittle: 28px;
+  --font-size-form-subtittle: 28px;
+  --font-size-form-tittle: 48px;
+  --font-size-icons: 30px;
+
+  // NUEVAS TIPOS
+  --font-size-xsmall: 12px;
+  --font-size-small: 14px;
+  --font-size-big: 18px;
+  --font-size-large: 28px;
+  --font-size-xlarge: 48px;
+
+  /* Text spacing */
+  --btn-spacing: 0.9px;
+
+  /* Line height */
+  --line-height-subtittle: 25px;
+  --line-height-tittle: 40px;
+
+  /* Font weight */
+  --font-weight-thin: 100;
+
+  --font-weight-light: 300;
+
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  // Font weight - new
+  --font-weight-extralight: 200;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
   /* Border */
-  --border-btn-outlined: 2px solid var(--primary-color);
   --border-form-input: 2px solid;
+  --border-btn-outlined: 2px solid var(--primary-color);
   --border-avatar: 2px solid var(--secondary-color);
+  --border-motivation-card: 1px solid var(--grey-color);
+  --border-hover: 2px solid var(--secondary-color);
 
   /* Border radius */
   --border-radius-6: var(--space-6);
   --border-radius-12: var(--space-12);
   --border-radius-24: var(--space-24);
 
+  --border-radius-general: 12px;
   --border-radius-btn: 12px;
   --border-radius-input: 12px;
   --border-radius-card: 12px;
@@ -97,56 +131,10 @@
   --z-index-header: 1000;
   --z-index-nav: 1000;
   --z-index-gotoapp: 2000;
+  --z-index-overlay: 10000;
+
+  /* Transiciones */
+  --transition-card: transform 0.3s, box-shadow 0.3s, border 0.3s;
+  --transition-img: transform 0.2s ease;
+
 }
-
-// VARIABLES OPTIMIZADAS
-
-// Colores
-$white-color: #ffffff;
-$grey-color: #808080;
-$black-color: #18171c;
-$primary-color: #838bc5;
-$primary-light-color: #dcdeef;
-$secondary-color: #fdc93a;
-$bg-color: #f7f7f7;
-
-// Espaciados y tamaños
-$padding-header: 24px 72px;
-$padding-input: 24px 12px;
-$padding-notes-folder: 24px 24px 100px 24px;
-$padding-registration: 64px;
-$padding-12: 12px;
-$padding-64: 64px;
-$margin-12: 12px;
-$margin-32: 32px;
-$margin-72: 72px;
-$margin-bottom-folders: 48px;
-$border-radius-input: 12px;
-$border-radius-card: 12px;
-$border-radius-popup: 12px;
-$border-radius-big-popup: 48px;
-
-// Box shadow
-$box-shadow-general: 0 4px 4px rgba(0, 0, 0, 0.15);
-
-// Tipografía
-$font-size-logo: 24px;
-$font-size-popup-title: 25px;
-$font-size-input-label: 14px;
-$font-size-tittle-app: 18px;
-$font-size-subtittle: 16px;
-$font-size-text: 14px;
-$font-size-small-text: 12px;
-
-$font-weight-extrabold: 800;
-$font-weight-bold: 700;
-$font-weight-regular: 400;
-
-$line-height-subtittle: 25px;
-
-// Bordes
-$border-form-input: 2px solid $black-color;
-
-// Z-index
-$z-index-header: 1000;
-$z-index-overlay: 10000;

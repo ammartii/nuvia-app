@@ -1,4 +1,4 @@
-import useBodyScrollLock from "../../../../utils/bodyScrollLock";
+import useBodyScrollLock from "../../../../hooks/useBodyScrollLock";
 import Button from "../../buttons/Button";
 
 import "./IconAdd.scss";

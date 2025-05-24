@@ -1,23 +1,35 @@
 @import "../../../../styles/Mixins";
-@import "../../../../styles/Variables";
 
 .form-group {
-  @include flexbox(column, flex-start, column);
-  margin-bottom: 1.5rem;
+  @include flex-column-left(6px);
 
-  // Si el input dentro tiene focus, cambia el color del label
   &:has(input:focus) {
     .form-label {
-      color: $primary-color;
+      color: var(--primary-color);
+    }
+
+    .form-input {
+      border-color: var(--primary-color);
+
+      &::placeholder {
+        color: var(--primary-color);
+      }
     }
   }
 }
 
-// Esto lo cambiaríamos a typography (?)
-// AuthForm.tsx
+// Pendiente reubicar (?)
 .form-label {
-  font-weight: $font-weight-bold;
-  font-size: $font-size-input-label;
-  color: $black-color;
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--margin-regular);
+  @include font-small-black(var(--font-weight-bold));
+}
+
+.form-input {
+  margin-bottom: var(--margin-regular);
+  @include size(380px, 50px);
+  @include input-border;
+
+  &::placeholder {
+    @include font-small-black();
+  }
 }

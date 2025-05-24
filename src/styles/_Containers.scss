@@ -1,4 +1,26 @@
 @import "./Mixins";
-@import "./Variables";
 
+// Contenedor páginas principales
+// De momento no se usa
+.principal-views__container {
+  @include principal-views();
+}
 
+// Contenedor páginas dentro de profile
+.profile-subviews__container {
+  @include profile-subviews(); // 100vh
+}
+
+// Contenedor para los overlays
+.modal__overlay {
+  @include modal-overlay();
+}
+
+// Contenedor principal páginas
+// 100% / 100vh
+.views-content__container {
+  background-color: var(--bg-color);
+  padding: var(--padding-other-funcionalities);
+  @include size();
+  @include flexbox(flex-start, center, column, nowrap, 12px);
+}
