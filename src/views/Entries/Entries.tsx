@@ -10,17 +10,14 @@ import DailyQuiz from "../../components/ui/modals/DailyQuiz/DailyQuiz";
 
 import { Entry } from "../../models/entry.model";
 import { useActiveUser } from "../../hooks/useActiveUser";
+import { useModal } from "../../hooks/useModal";
 
 const Entries = () => {
   const { user, updateActiveUser } = useActiveUser();
+  const { modalToShow, openModal, closeModal } = useModal();
 
-  // Estado para controlar visibilidad del quiz diario
-  const [showQuiz, setShowQuiz] = useState(false);
-
-  // Entradas locales del usuario (sincronizadas con el hook)
   const [entries, setEntries] = useState<Entry[]>([]);
 
-  // Carga inicial de entradas desde el usuario activo
   useEffect(() => {
     if (user?.entries) {
       setEntries(user.entries);
@@ -29,7 +26,6 @@ const Entries = () => {
     }
   }, [user]);
 
-  // Añadir nueva entrada y actualizar el usuario activo
   const addNewEntrie = (newEntrie: Entry) => {
     if (!user) return;
 
@@ -38,30 +34,23 @@ const Entries = () => {
     updateActiveUser({ entries: updatedEntries });
   };
 
-  // Mostrar mensaje de carga si el usuario aún no está disponible
   if (!user) {
     return <p>Cargando usuario activo...</p>;
   }
 
   return (
     <>
-      {/* Modal sugerido para móvil */}
       <GoToAppModal />
-
-      {/* Cabecera con título de sección */}
       <NuviaHeader title="Entries" />
 
       <div className="entries__page">
-        {/* Selector del mes (opcionalmente funcional) */}
         <MonthSelector />
 
-        {/* Botón para iniciar quiz */}
-        <section className="start-quiz" onClick={() => setShowQuiz(true)}>
+        <section className="start-quiz" onClick={() => openModal("quiz")}>
           <span className="material-symbols-rounded">add_circle</span>
           <p>¿Cómo te sientes hoy?</p>
         </section>
 
-        {/* Listado de entradas */}
         <div className="entries__container">
           {entries.map((entry) => (
             <EntryCard
@@ -75,15 +64,10 @@ const Entries = () => {
         </div>
       </div>
 
-      {/* Modal de quiz diario */}
-      {showQuiz && (
-        <DailyQuiz
-          onClose={() => setShowQuiz(false)}
-          addNewEntrie={addNewEntrie}
-        />
+      {modalToShow === "quiz" && (
+        <DailyQuiz onClose={closeModal} addNewEntrie={addNewEntrie}openModal={openModal}/>
       )}
 
-      {/* Barra de navegación inferior */}
       <Nav />
     </>
   );

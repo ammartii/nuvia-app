@@ -5,6 +5,7 @@ import type { Folder } from "../../../../models/folder.model";
 import type { Note } from "../../../../models/note.model";
 
 import Button from "../../buttons/Button";
+import FolderSelector from "../../other/FolderSelector/FolderSelector";
 
 type AddNoteProps = {
   folders: Folder[];
@@ -23,15 +24,10 @@ const AddNote = ({ folders, onClose, onSave }: AddNoteProps) => {
   const { title, content, folderId, image } = form;
 
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setForm((prev) => {
-      if (prev[name as keyof typeof prev] === value) return prev;
-      return { ...prev, [name]: value };
-    });
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -47,7 +43,6 @@ const AddNote = ({ folders, onClose, onSave }: AddNoteProps) => {
     };
 
     reader.onerror = () => alert("Error leyendo la imagen");
-
     reader.readAsDataURL(file);
   };
 
@@ -73,7 +68,7 @@ const AddNote = ({ folders, onClose, onSave }: AddNoteProps) => {
       image,
     };
 
-    onSave(newNote); // Notifica al padre para que agregue la nota y actualice el estado
+    onSave(newNote);
   };
 
   return (
@@ -91,18 +86,11 @@ const AddNote = ({ folders, onClose, onSave }: AddNoteProps) => {
               autoFocus
             />
 
-            <select
-              className="add-note__select"
-              name="folderId"
-              value={folderId}
-              onChange={handleChange}
-            >
-              {folders.map(({ id, name }) => (
-                <option key={id} value={id}>
-                  {name}
-                </option>
-              ))}
-            </select>
+            <FolderSelector
+              folders={folders}
+              selectedFolderId={folderId}
+              onChange={(id) => setForm((prev) => ({ ...prev, folderId: id }))}
+            />
 
             <textarea
               className="add-note__textarea"

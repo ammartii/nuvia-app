@@ -1,54 +1,40 @@
-import { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import "./Nav.scss";
-
-import IconAdd from "../../ui/modals/IconAdd/IconAdd";
+import { useModal } from "../../../hooks/useModal";
 import DailyQuiz from "../../ui/modals/DailyQuiz/DailyQuiz";
 import AddNote from "../../ui/modals/AddNote/AddNote";
+import IconAdd from "../../ui/modals/IconAdd/IconAdd";
 import { Folder } from "../../../models/folder.model";
 import { Note } from "../../../models/note.model";
+import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
-// Carpeta de ejemplo (puedes conectar esto con contexto o estado global)
+import "./Nav.scss";
+
+// Carpeta de ejemplo (puedes reemplazar por tu estado o contexto real)
 const exampleFolders: Folder[] = [];
 
 function Nav() {
+  const { modalToShow, openModal, closeModal } = useModal();
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Estados para manejar visibilidad de modales
   const [isIconAddVisible, setIsIconAddVisible] = useState(false);
-  const [modalToShow, setModalToShow] = useState<"quiz" | "addnote" | null>(
-    null
-  );
 
-  // Alterna visibilidad del menú de acciones flotantes
+  // Alterna visibilidad menú flotante
   const toggleIconAdd = () => {
     setIsIconAddVisible((prev) => !prev);
   };
 
-  // Abre uno de los dos modales posibles y cierra el menú flotante
-  const openModal = (modal: "quiz" | "addnote") => {
-    setModalToShow(modal);
-    setIsIconAddVisible(false);
-  };
-
-  // Cierra cualquier modal abierto
-  const closeModal = () => {
-    setModalToShow(null);
-  };
-
-  // Acción al guardar nota (conectar a tu sistema de almacenamiento)
+  // Guarda la nota y cierra modal
   const handleSaveNote = (newNote: Note) => {
     console.log("Guardar nota:", newNote);
     closeModal();
   };
 
-  // Chequea si una ruta está activa
+  // Chequea si ruta está activa para estilos
   const isActiveRoute = (path: string) => location.pathname === path;
 
   return (
     <div className="nav">
-      {/* Iconos de navegación inferior */}
       <div className="icons">
         <div
           className={`icon ${isActiveRoute("/entries") ? "active" : ""}`}
@@ -88,17 +74,20 @@ function Nav() {
         </div>
       </div>
 
-      {/* Menú de acciones adicionales flotante */}
+      {/* Menú acciones flotantes */}
       {isIconAddVisible && (
         <IconAdd
           onClose={toggleIconAdd}
-          openModal={openModal}
+          openModal={(modal) => {
+            openModal(modal);
+            toggleIconAdd();
+          }}
           folders={exampleFolders}
           onSaveNote={handleSaveNote}
         />
       )}
 
-      {/* Modal de quiz diario */}
+      {/* Modal quiz diario */}
       {modalToShow === "quiz" && (
         <DailyQuiz
           onClose={closeModal}
@@ -107,7 +96,7 @@ function Nav() {
         />
       )}
 
-      {/* Modal para añadir nota */}
+      {/* Modal añadir nota */}
       {modalToShow === "addnote" && (
         <AddNote
           folders={exampleFolders}
