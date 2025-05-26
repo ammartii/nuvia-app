@@ -1,6 +1,6 @@
 @import "../../../../styles/Mixins";
 
-.entrie-card__container {
+.entry-card__container {
   max-width: 350px;
   @include size(100%, 90px);
   @include other-card-properties;
@@ -8,27 +8,27 @@
 }
 
 // Pendiente reubicar (?)
-.entrie-card__image {
+.entry-card__image {
   @include size(50px, 50px);
 }
 
-.entrie-card__text-container {
+.entry-card__text-container {
   width: 190px;
   height: auto;
 }
 
-.entrie-card__date {
+.entry-card__date {
   text-transform: uppercase;
   @include font-xsmall-medium(var(--black-color));
 }
 
-.entrie-card__text {
+.entry-card__text {
   font-size: var(--font-size-big);
   font-weight: var(--font-weight-bold);
   line-height: 25px;
 }
 
-.entrie-card__icons {
+.entry-card__icons {
   display: flex;
   justify-content: center;
   gap: 10px;

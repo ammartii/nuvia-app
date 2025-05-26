@@ -1,0 +1,26 @@
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  height: 100vh;
+  background-color: var(--bg-color);
+
+  .react-calendar {
+    width: 320px;
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    z-index: 1;
+  }
+}
+
+/* Estilo para los días con entrada */
+.calendar-tile-has-entry {
+  background-color: #7b4de1 !important; /* Morado */
+  color: white !important;
+  border-radius: 8px;
+  font-weight: bold;
+}

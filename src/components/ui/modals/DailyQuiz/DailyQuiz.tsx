@@ -38,16 +38,12 @@ const DailyQuiz = ({ onClose, addNewEntrie, openModal }: DailyQuizProps) => {
 
   // Finaliza el quiz creando una nueva entrada y cerrando el modal
   const handleFinish = () => {
-    if (selectedMoodIndex === null) return; // Validación básica
+    if (selectedMoodIndex === null) return;
 
     const mood = moodList[selectedMoodIndex];
     const id = Date.now().toString();
 
-    const date = new Date().toLocaleDateString("es-ES", {
-      weekday: "long",
-      day: "numeric",
-      month: "long",
-    });
+    const date = new Date().toISOString(); // <-- aquí
 
     const newEntrie: Entry = {
       id,

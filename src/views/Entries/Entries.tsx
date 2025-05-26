@@ -7,6 +7,7 @@ import GoToAppModal from "../../components/ui/modals/GoToApp/GoToApp";
 import MonthSelector from "../../components/layout/MonthSelector/MonthSelector";
 import EntryCard from "../../components/ui/cards/EntryCard/EntryCard";
 import DailyQuiz from "../../components/ui/modals/DailyQuiz/DailyQuiz";
+import CalendarView from "../../components/ui/other/CalendarView/CalendarView";
 
 import { Entry } from "../../models/entry.model";
 import { useActiveUser } from "../../hooks/useActiveUser";
@@ -17,6 +18,7 @@ const Entries = () => {
   const { modalToShow, openModal, closeModal } = useModal();
 
   const [entries, setEntries] = useState<Entry[]>([]);
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
 
   useEffect(() => {
     if (user?.entries) {
@@ -34,6 +36,32 @@ const Entries = () => {
     updateActiveUser({ entries: updatedEntries });
   };
 
+  const prevMonth = () => {
+    const newDate = new Date(
+      selectedDate.getFullYear(),
+      selectedDate.getMonth() - 1,
+      1
+    );
+    setSelectedDate(newDate);
+  };
+
+  const nextMonth = () => {
+    const newDate = new Date(
+      selectedDate.getFullYear(),
+      selectedDate.getMonth() + 1,
+      1
+    );
+    setSelectedDate(newDate);
+  };
+
+  const filteredEntries = entries.filter((entry) => {
+  const entryDate = new Date(entry.date);
+  return (
+    entryDate.getFullYear() === selectedDate.getFullYear() &&
+    entryDate.getMonth() === selectedDate.getMonth()
+  );
+});
+
   if (!user) {
     return <p>Cargando usuario activo...</p>;
   }
@@ -44,7 +72,12 @@ const Entries = () => {
       <NuviaHeader title="Entries" />
 
       <div className="entries__page">
-        <MonthSelector />
+        <MonthSelector
+          month={selectedDate.getMonth()}
+          year={selectedDate.getFullYear()}
+          onPrevMonth={prevMonth}
+          onNextMonth={nextMonth}
+        />
 
         <section className="start-quiz" onClick={() => openModal("quiz")}>
           <span className="material-symbols-rounded">add_circle</span>
@@ -52,21 +85,31 @@ const Entries = () => {
         </section>
 
         <div className="entries__container">
-          {entries.map((entry) => (
-            <EntryCard
-              key={entry.id}
-              id={entry.id}
-              image={entry.image}
-              text={entry.text}
-              date={entry.date}
-            />
-          ))}
+          {filteredEntries.length === 0 ? (
+            <p>No hay entradas para este mes.</p>
+          ) : (
+            filteredEntries.map((entry) => (
+              <EntryCard
+                key={entry.id}
+                id={entry.id}
+                image={entry.image}
+                text={entry.text}
+                date={entry.date}
+              />
+            ))
+          )}
         </div>
       </div>
 
       {modalToShow === "quiz" && (
-        <DailyQuiz onClose={closeModal} addNewEntrie={addNewEntrie}openModal={openModal}/>
+        <DailyQuiz
+          onClose={closeModal}
+          addNewEntrie={addNewEntrie}
+          openModal={openModal}
+        />
       )}
+
+      <CalendarView entries={entries} />
 
       <Nav />
     </>

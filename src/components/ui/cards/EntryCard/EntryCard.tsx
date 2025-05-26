@@ -1,52 +1,52 @@
 import { useEffect, useState } from "react";
 import "./EntryCard.scss";
 
-// Tipos y hooks
 import { Entry } from "../../../../models/entry.model";
 import { useActiveUser } from "../../../../hooks/useActiveUser";
 
-const EntrieCard = ({ id, image, text, date }: Entry) => {
+const EntryCard = ({ id, image, text, date }: Entry) => {
   const { user, updateActiveUser } = useActiveUser();
 
-  // Estado local para marcar si la entrada es favorita
   const [favorite, setFavorite] = useState(false);
 
-  // Cuando el componente se monta o el usuario cambia,
-  // sincroniza el estado local con los datos del usuario activo
   useEffect(() => {
     if (!user?.entries) return;
     const entry = user.entries.find((e) => e.id === id);
     setFavorite(entry?.isFavorite || false);
   }, [user, id]);
 
-  // Alterna el estado de favorito y actualiza al usuario activo
   const toggleFavorite = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Evita que se propague el clic a elementos padres
+    e.stopPropagation();
 
     if (!user?.entries) return;
 
-    // Actualiza la entrada específica en el array del usuario
     const updatedEntries = user.entries.map((entry) =>
       entry.id === id ? { ...entry, isFavorite: !favorite } : entry
     );
 
     updateActiveUser({ entries: updatedEntries });
-    setFavorite(!favorite); // Actualiza el estado local
+    setFavorite(!favorite);
   };
 
-  return (
-    <div className="entrie-card__container">
-      {/* Imagen de la entrada */}
-      <img className="entrie-card__image" src={image} alt={text} />
+  // Formatear fecha para mostrar "Lunes, 5 de mayo"
+  const formattedDate = new Date(date)
+    .toLocaleDateString("es-ES", {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+    })
+    .replace(/^\w/, (c) => c.toUpperCase());
 
-      {/* Contenedor de texto */}
-      <div className="entrie-card__text-container">
-        <p className="entrie-card__date">{date}</p>
-        <p className="entrie-card__text">{text}</p>
+  return (
+    <div className="entry-card__container">
+      <img className="entry-card__image" src={image} alt={text} />
+
+      <div className="entry-card__text-container">
+        <p className="entry-card__date">{formattedDate}</p>
+        <p className="entry-card__text">{text}</p>
       </div>
 
-      {/* Iconos de interacción */}
-      <div className="entrie-card__icons">
+      <div className="entry-card__icons">
         <span
           className={`material-symbols-rounded star-icon ${
             favorite ? "favorite" : ""
@@ -61,4 +61,4 @@ const EntrieCard = ({ id, image, text, date }: Entry) => {
   );
 };
 
-export default EntrieCard;
+export default EntryCard;
