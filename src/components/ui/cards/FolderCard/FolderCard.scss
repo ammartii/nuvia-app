@@ -1,10 +1,16 @@
 @import "../../../../styles/Mixins";
 @import "../../../../styles/Variables";
 
-// Esto se podria meter en un scss de cards y nos cargamos esto no??
 .folder-card {
-  width: 150px;
-  height: auto;
-
+  @include size(90px, auto);
   @include flex-column-center(12px);
+}
+
+.folder-card__image {
+  @include size(80px, auto);
+}
+
+.folder-card__name {
+  text-align: center;
+  @include font-xsmall-medium(var(--black-color));
 }

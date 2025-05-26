@@ -1,15 +1,15 @@
 @import "../../styles/Mixins";
 
 .notes-folder-container {
+  padding-top: var(--padding-12);
+  padding: var(--padding-12);
   background-color: var(--bg-color);
-  padding: var(--padding-general);
-
   @include size();
   @include flex-column-center(12px);
 }
 
 .folders {
-  width: auto;
-  margin-bottom: var(--margin-12);
-  @include row-wrap(12px);
+  width: 100%;
+  margin-bottom: var(--margin-24);
+  @include row-wrap(24px);
 }

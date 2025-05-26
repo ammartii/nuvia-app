@@ -1,20 +1,26 @@
+@import "../../../../styles/Mixins";
+
 .note-card {
-  background-color: #fff6da;
-  border-radius: 12px;
-  padding: 16px;
-  margin: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
+  padding: 12px;
+  background-color: var(--secondary-light-color);
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--border-radius-general);
 
-  p {
-    margin: 0;
-    font-weight: bold;
-    color: #333;
-  }
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: hidden;
 
-  small {
-    display: block;
-    margin-top: 10px;
-    color: #666;
-  }
+  @include size(159px, 159px);
+}
+
+.note-card__name {
+  font-size: var(--font-size-small);
+  margin-bottom: 6px;
+}
+
+.note-card__content {
+  font-size: var(--font-size-xsmall);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }

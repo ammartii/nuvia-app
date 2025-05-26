@@ -1,0 +1,17 @@
+@import "../../../../styles/mixins";
+
+.folder-selector {
+  border: none;
+
+  background-color: transparent;
+  font-size: var(--font-size-small);
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+  margin-left: -4px;
+  color: var(--grey-color);
+
+  &:focus {
+    @include remove-border;
+  }
+}

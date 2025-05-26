@@ -1,8 +1,6 @@
 @import "./Mixins";
 
-// =====================
-// Avatar
-// =====================
+// Avatar 
 .avatar-image {
   width: 125px;
   height: 125px;
@@ -35,18 +33,7 @@
 }
 
 
-// =====================
-// Folder Images
-// =====================
-.add-folder__image {
-  width: 150px;
-  height: 150px;
-}
 
-.folder-card__image {
-  width: 100px;
-  height: 100px;
-}
 
 // =====================
 // Achievement Card Images
@@ -79,7 +66,6 @@
   box-shadow: var(--box-shadow-general);
   user-select: none;
 }
-
 
 // =====================
 // Mood Analysis

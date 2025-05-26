@@ -4,16 +4,3 @@
 
 
 
-//
-.add-folder__input,
-.add-folder__textarea {
-  background-color: transparent;
-  font-family: "Inter", sans-serif;
-  text-align: center;
-
-  @include remove-border;
-
-  &:focus {
-    @include remove-border;
-  }
-}

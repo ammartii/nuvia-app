@@ -1,15 +1,59 @@
 @import "../../../../styles/Mixins";
 @import "../../../../styles/Variables";
 
-// Yo creo que esto podríamos unificarlo en una clase y cargarnos este scss
-.add-folder-overlay {
+// se unifica (?)
+.add-folder__overlay {
   @include modal-overlay;
 }
 
-.add-folder-content {
+.add-folder__content {
+  width: 100%;
   @include modal-content;
+  justify-content: space-evenly;
 }
 
-.add-folder__buttons {
+.add-folder__buttons,
+.add-folder__info {
   @include flex-column-center(12px);
+}
+
+// Cambios en inputs y textareas
+.add-folder__input,
+.add-folder__textarea {
+  background-color: transparent;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+
+  @include remove-border;
+
+  &:focus {
+    @include remove-border;
+  }
+}
+
+.add-folder__input {
+  margin-top: var(--margin-small);
+  color: var(--black-color);
+  font-size: var(--font-size-big);
+  font-weight: var(--font-weight-bold);
+
+  &::placeholder {
+    color: var(--grey-color);
+  }
+}
+
+.add-folder__textarea {
+  @include font-small-black;
+  height: 50px;
+
+  &::placeholder {
+    @include font-small-black();
+    color: var(--grey-color);
+  }
+}
+
+// mover a img (?)
+.add-folder__image {
+  width: 150px;
+  height: 150px;
 }

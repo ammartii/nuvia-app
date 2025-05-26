@@ -1,7 +1,6 @@
 @import "../../styles/Mixins";
 
-// PENDIENTE SIMPLIFICAR
-.notes-inside-folder-container {
+.notes-inside-folder__container {
   background-color: var(--bg-color);
   padding: var(--padding-general);
 
@@ -9,8 +8,8 @@
   @include flex-column-center(12px);
 }
 
-.notes {
-  width: auto;
+.notes-list {
+  width: 100%;
   margin-bottom: var(--margin-12);
   @include row-wrap(12px);
 }

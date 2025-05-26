@@ -1,34 +1,33 @@
 @import "../../../../styles/Mixins";
 @import "../../../../styles/Variables";
 
-// Yo creo que esto podríamos unificarlo en una clase y cargarnos este scss
-.add-note-overlay {
+// lo unificamos (?)
+.add-note__overlay {
   @include modal-overlay;
 }
 
-.add-note-container {
+.add-note__container {
   padding: 48px;
   @include modal-content;
+  justify-content: space-evenly;
 }
 
-.add-note-content {
-  width: 100%;
-  height: 300px;
-  padding: 24px;
+.add-note__content {
+  padding: var(--padding-24);
 
-  background-color: #fcf9da;
-  border: 1px solid #fddb77;
+  background-color: var(--secondary-light-color);
+  border: 1px solid var(--secondary-color);
   border-radius: var(--border-radius-general);
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @include size(100%, 300px);
 }
 
 .note-info {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  @include flex-column-left(6px);
 }
 
 .add-note__textarea,
@@ -45,41 +44,37 @@
   font-weight: bold;
 }
 
-.add-note__select {
-  border: none;
-  width: 35%;
-  background-color: transparent;
-  font-size: 14px;
-  font-weight: normal;
-  padding: 0;
-  margin: 0;
-  margin-left: -4px;
-
-  &:focus {
-    @include remove-border;
-  }
-}
-
-.select-option {
-  font-size: 16px;
-  padding: 8px;
-  color: #333;
-  background-color: #f0f0f0;
-}
-
 .add-note__textarea {
   margin-top: 24px;
   height: 130px;
   font-size: 12px;
   font-weight: normal;
+
+  @include font-small-black;
+  height: 150px;
+
+  &::placeholder {
+    @include font-small-black();
+    color: var(--grey-color);
+  }
 }
 
 .add-note__buttons {
   @include flex-column-center(12px);
 }
 
-/*
-.add-note__file {
-  @include remove-border;
+.hidden {
+  display: none;
 }
-  */
+
+.add-note__file {
+  padding: 12px 24px;
+
+  color: var(--grey-color);
+  font-size: 12px;
+  font-weight: var(--font-weight-regular);
+  text-transform: uppercase;
+  letter-spacing: var(--btn-spacing);
+
+  cursor: pointer;
+}

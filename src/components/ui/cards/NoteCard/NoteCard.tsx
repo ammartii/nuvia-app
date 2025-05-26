@@ -1,17 +1,22 @@
-import React from "react";
+// Importaciones necesarias
 import "./NoteCard.scss";
 
+// Tipado de props
 type NoteCardProps = {
   title: string;
   content: string;
-  image?: string;
+  image?: string; // (Opcional) imagen asociada a la nota
 };
 
-export const NoteCard: React.FC<NoteCardProps> = ({ title, content }) => {
+// Tarjeta que muestra una nota con título y contenido
+export const NoteCard = ({ title, content }: NoteCardProps) => {
   return (
     <div className="note-card">
-      <h3>{title}</h3>
-      <p>{content}</p>
+      {/* Título de la nota */}
+      <h3 className="note-card__name">{title}</h3>
+
+      {/* Contenido de la nota */}
+      <p className="note-card__content">{content}</p>
     </div>
   );
 };

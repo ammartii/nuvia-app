@@ -10,6 +10,7 @@
   --primary-color: #838bc5;
   --primary-light-color: #dcdeef;
   --secondary-color: #fdc93a;
+  --secondary-light-color: #fcf9da;
   --bg-color: #f7f7f7;
   --nav-bg-color: #f7f7f7;
   --popup-bg-color: rgba(0, 0, 0, 0.7);
@@ -130,12 +131,11 @@
   --z-index-welcome-content: 2;
   --z-index-header: 1000;
   --z-index-nav: 1000;
-  --z-index-gotoapp: 2000;
+  --z-index-gotoapp: 20000;
   --z-indez-quiz: 2000;
   --z-index-overlay: 10000;
 
   /* Transiciones */
   --transition-card: transform 0.3s, box-shadow 0.3s, border 0.3s;
   --transition-img: transform 0.2s ease;
-
 }
