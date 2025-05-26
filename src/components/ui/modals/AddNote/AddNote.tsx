@@ -14,15 +14,17 @@ type AddNoteProps = {
 };
 
 const AddNote = ({ folders, onClose, onSave }: AddNoteProps) => {
+  // Estado local para manejar el formulario de la nota
   const [form, setForm] = useState({
     title: "",
     content: "",
-    folderId: folders[0]?.id || "",
+    folderId: folders[0]?.id || "", // Selecciona la primera carpeta por defecto
     image: undefined as string | undefined,
   });
 
   const { title, content, folderId, image } = form;
 
+  // Actualiza el estado del formulario para inputs y textarea
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -30,6 +32,7 @@ const AddNote = ({ folders, onClose, onSave }: AddNoteProps) => {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
+  // Maneja la carga de imagen y la convierte a base64
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -46,12 +49,14 @@ const AddNote = ({ folders, onClose, onSave }: AddNoteProps) => {
     reader.readAsDataURL(file);
   };
 
+  // Valida los datos antes de guardar
   const validateForm = () => {
     if (!title.trim()) return "Introduce un título para la nota";
     if (!folderId) return "Selecciona una carpeta";
     return null;
   };
 
+  // Crea la nueva nota y la envía al callback onSave
   const handleSave = () => {
     const error = validateForm();
     if (error) {
@@ -72,10 +77,13 @@ const AddNote = ({ folders, onClose, onSave }: AddNoteProps) => {
   };
 
   return (
+    // Overlay que cierra el modal al hacer clic fuera
     <div className="add-note-overlay" onClick={onClose}>
+      {/* Contenedor principal, previene el cierre al hacer clic dentro */}
       <div className="add-note-container" onClick={(e) => e.stopPropagation()}>
         <div className="add-note-content">
           <div className="note-info">
+            {/* Input para el título de la nota */}
             <input
               className="add-note__input"
               name="title"
@@ -86,12 +94,14 @@ const AddNote = ({ folders, onClose, onSave }: AddNoteProps) => {
               autoFocus
             />
 
+            {/* Selector de carpeta */}
             <FolderSelector
               folders={folders}
               selectedFolderId={folderId}
               onChange={(id) => setForm((prev) => ({ ...prev, folderId: id }))}
             />
 
+            {/* Textarea para el contenido de la nota */}
             <textarea
               className="add-note__textarea"
               name="content"
@@ -101,6 +111,7 @@ const AddNote = ({ folders, onClose, onSave }: AddNoteProps) => {
             />
           </div>
 
+          {/* Input para cargar imagen */}
           <input
             className="add-note__file"
             type="file"
@@ -109,6 +120,7 @@ const AddNote = ({ folders, onClose, onSave }: AddNoteProps) => {
           />
         </div>
 
+        {/* Botones para guardar o cancelar */}
         <div className="add-note__buttons">
           <Button variant="purple" onClick={handleSave} type="submit">
             Guardar nota

@@ -26,42 +26,37 @@ function App() {
   return (
     <ModalProvider>
       <Router>
-        <div>
-          <ScrollToTop />
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route
-              path="/avatar-registration"
-              element={<AvatarRegistration />}
-            />
-            <Route path="/achievements" element={<Achievements />} />
-            <Route path="/calendar" element={<Calendar />} />
-            <Route path="/entries" element={<Entries />} />
-            <Route path="/featured-days" element={<FeaturedDays />} />
-            <Route path="/landing" element={<Landing />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/mood-analysis" element={<MoodAnalysis />} />
-            <Route path="/motivations" element={<Motivations />} />
-            <Route
-              path="/motivations-registration"
-              element={<MotivationsRegistration />}
-            />
-            <Route path="/notes-folder" element={<NotesFolder />} />
-            <Route
-              path="/notes-folder/:folderId"
-              element={<NotesInsideFolder />}
-            />
-            <Route path="/photo-gallery" element={<PhotoGalery />} />
-            <Route path="/profile" element={<Profile />} />
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/avatar-registration" element={<AvatarRegistration />} />
+          <Route path="/achievements" element={<Achievements />} />
+          <Route path="/calendar" element={<Calendar />} />
+          <Route path="/entries" element={<Entries />} />
+          <Route path="/featured-days" element={<FeaturedDays />} />
+          <Route path="/landing" element={<Landing />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/mood-analysis" element={<MoodAnalysis />} />
+          <Route path="/motivations" element={<Motivations />} />
+          <Route
+            path="/motivations-registration"
+            element={<MotivationsRegistration />}
+          />
+          <Route path="/notes-folder" element={<NotesFolder />} />
+          <Route
+            path="/notes-folder/:folderId"
+            element={<NotesInsideFolder />}
+          />
+          <Route path="/photo-gallery" element={<PhotoGalery />} />
+          <Route path="/profile" element={<Profile />} />
 
-            <Route
-              path="/profile-registration"
-              element={<ProfileRegistration />}
-            />
-            <Route path="/reports" element={<Reports />} />
-            <Route path="/welcome" element={<Welcome />} />
-          </Routes>
-        </div>
+          <Route
+            path="/profile-registration"
+            element={<ProfileRegistration />}
+          />
+          <Route path="/reports" element={<Reports />} />
+          <Route path="/welcome" element={<Welcome />} />
+        </Routes>
       </Router>
     </ModalProvider>
   );

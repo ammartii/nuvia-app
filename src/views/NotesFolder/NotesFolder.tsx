@@ -24,12 +24,14 @@ const NotesFolder = () => {
   const [showAddFolder, setShowAddFolder] = useState(false);
   const [showAddNote, setShowAddNote] = useState(false);
 
+  // Carga carpetas y notas del usuario
   useEffect(() => {
     if (!user) return;
     setFolders(user.folders || []);
     setNotes(user.notes || []);
   }, [user]);
 
+  // Agrega carpeta nueva
   const handleAddFolder = (name: string, description: string) => {
     if (!user) return;
 
@@ -46,6 +48,7 @@ const NotesFolder = () => {
     setShowAddFolder(false);
   };
 
+  // Agrega nota nueva
   const handleAddNote = (newNote: Note) => {
     if (!user) return;
 
@@ -64,6 +67,7 @@ const NotesFolder = () => {
       <NuviaHeader title="Mis Carpetas" />
 
       <div className="notes-folder-container">
+        {/* Mostrar modal para añadir carpeta */}
         {showAddFolder && (
           <AddFolder
             onSave={handleAddFolder}
@@ -71,6 +75,7 @@ const NotesFolder = () => {
           />
         )}
 
+        {/* Mostrar modal para añadir nota */}
         {showAddNote && (
           <AddNote
             folders={folders}
@@ -79,6 +84,7 @@ const NotesFolder = () => {
           />
         )}
 
+        {/* Mostrar lista de carpetas y botones solo si no hay modales abiertos */}
         {!modalsOpen && (
           <>
             <div className="folders">

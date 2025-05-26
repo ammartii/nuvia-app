@@ -2,35 +2,34 @@
 @import "../../../../styles/Variables";
 
 .dailyquiz__modal {
-  width: 100vw;
-  height: 100%;
   min-height: 100vh;
-  padding-top: 48px;
+  padding-top: var(--padding-nuvia-header);
   background-color: var(--bg-color);
-  z-index: 2000;
+  z-index: var(--z-indez-quiz);
 
   position: fixed;
   top: 0;
   left: 0;
 
+  @include size();
   @include flexbox(flex-start, center, column, nowrap, 12px);
 }
 
 // Header
 .dailyquiz-header__container {
   width: 100%;
-  padding: 12px 24px;
+  padding: var(--padding-general-items);
   @include flexbox(space-between, center);
 }
 
 // Button
 .dailyquiz__actions {
-  padding-bottom: 48px;
+  padding-bottom: var(--padding-nuvia-header);
 }
 // Contenido steps
 .dailyquiz__content {
   height: 100%;
-  margin-bottom: 24px;
+  margin-bottom: var(--margin-medium);
 }
 
 .step__container {
@@ -43,8 +42,8 @@
   height: auto;
 
   h3 {
-    font-size: 28px;
-    font-weight: bold;
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-bold);
     color: var(--primary-color);
     padding: 0 24px;
   }
@@ -59,18 +58,17 @@
     @include flexbox(center, center, column, nowrap, 12px);
 
     img {
-      width: 180px;
-      height: 180px;
+      @include size(180px, 180px);
     }
 
     span {
-      font-size: 18px;
-      font-weight: medium;
+      font-size: var(--font-size-big);
+      font-weight: var(--font-weight-regular);
     }
   }
 
   .small-icons {
-    padding: 24px;
+    padding: var(--padding-24);
     @include flexbox(center, center, row, nowrap, 12px);
 
     .small-icon {
@@ -80,8 +78,7 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease;
 
       img {
-        width: 55px;
-        height: 55px;
+        @include size(55px, 55px);
       }
 
       &:hover {
@@ -101,19 +98,16 @@
 // Step 2
 
 .activities-list {
-  width: 100%;
-  height: 450px;
-  padding-bottom: 12px;
+  padding-bottom: var(--padding-general);
   overflow: scroll;
 
+  @include size(100%, 450px);
   @include flexbox(center, center, row, wrap, 12px);
 }
 
 .activity-item {
   flex-shrink: 0;
-  width: 110px;
-  height: 130px;
-  padding: 12px;
+  padding: var(--padding-general);
   background-color: var(--white-color);
   box-shadow: var(--box-shadow-general);
   border-radius: var(--border-radius-general);
@@ -122,16 +116,17 @@
   border: 1px solid transparent;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 
+  @include size(110px, 130px);
   @include flexbox(flex-start, center, column, nowrap, 6px);
 
   img {
-    width: 60px;
-    height: 60px;
+    @include size(60px, 60px);
   }
+
   span {
     text-align: center;
-    font-size: 12px;
-    color: #333;
+    font-size: var(--font-size-xsmall);
+    color: var(--grey-color);
   }
 
   &.selected {
@@ -143,10 +138,6 @@
 
 // Step 3
 .step3__content {
-  margin-top: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
+  margin-top: var(--margin-medium);
+  @include column-center(12px);
 }

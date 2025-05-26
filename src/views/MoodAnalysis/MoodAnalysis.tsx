@@ -50,7 +50,7 @@ const MoodAnalysis = () => {
         <div className="mood-analysis__container">
           <h2 className="mood-analysis__title">Flujo de humor</h2>
 
-          <div className="mood-card__flow">
+          <div className="mood-analysis-card__flow">
             {/* Mostrar mensaje si no hay entradas */}
             {entries.length === 0 ? (
               <p className="no-things-text ">
@@ -78,7 +78,7 @@ const MoodAnalysis = () => {
         <div className="mood-analysis__container">
           <h2 className="mood-analysis__title">Ranking de iconos</h2>
 
-          <div className="mood-card__ranking">
+          <div className="mood-analysis-card__ranking">
             {/* Mostrar mensaje si no hay entradas */}
             {entries.length === 0 ? (
               <p className="no-things-text ">

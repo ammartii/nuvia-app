@@ -1,7 +1,7 @@
 @import "../../styles/Mixins";
 
 .mood-analysis-page {
-  @include principal-views();
+  @include principal-views(100%);
 }
 
 .analysis-selector {
