@@ -49,14 +49,8 @@ const NotesFolder = () => {
   };
 
   // Agrega nota nueva
-  const handleAddNote = (newNote: Note) => {
-    if (!user) return;
-
-    const updatedNotes = [...notes, newNote];
-    updateActiveUser({ notes: updatedNotes });
-
-    setNotes(updatedNotes);
-    setShowAddNote(false);
+  const handleOnNoteAdded = (newNote: Note) => {
+    setNotes([...notes, newNote]);
   };
 
   const modalsOpen = showAddFolder || showAddNote;
@@ -79,8 +73,8 @@ const NotesFolder = () => {
         {showAddNote && (
           <AddNote
             folders={folders}
-            onSave={handleAddNote}
             onClose={() => setShowAddNote(false)}
+            onNoteAdded={handleOnNoteAdded}
           />
         )}
 

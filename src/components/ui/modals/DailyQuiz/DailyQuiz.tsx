@@ -12,7 +12,7 @@ import moodList from "../../../../constants/moodList";
 type DailyQuizProps = {
   onClose: () => void;
   addNewEntrie: (newEntrie: Entry) => void;
-  openModal: (modal: "addnote") => void;
+  openModal: () => void;
 };
 
 const DailyQuiz = ({ onClose, addNewEntrie, openModal }: DailyQuizProps) => {
@@ -92,10 +92,7 @@ const DailyQuiz = ({ onClose, addNewEntrie, openModal }: DailyQuizProps) => {
           />
         )}
         {step === 3 && (
-          <DailyQuizStep3
-            onFinish={handleFinish}
-            onAddNote={() => openModal("addnote")}
-          />
+          <DailyQuizStep3 onFinish={handleFinish} onAddNote={openModal} />
         )}
       </div>
 

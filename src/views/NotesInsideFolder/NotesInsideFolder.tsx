@@ -18,7 +18,7 @@ import { useActiveUser } from "../../hooks/useActiveUser";
 const NotesInsideFolder = () => {
   const { folderId } = useParams<{ folderId: string }>();
   const navigate = useNavigate();
-  const { user, updateActiveUser } = useActiveUser();
+  const { user } = useActiveUser();
 
   const [folder, setFolder] = useState<Folder | null>(null);
   const [notes, setNotes] = useState<Note[]>([]);
@@ -44,15 +44,11 @@ const NotesInsideFolder = () => {
   }, [user, folderId]);
 
   // Agregar nueva nota a la carpeta
-  const handleAddNote = (newNote: Note) => {
-    if (!user) return;
-
-    const updatedNotes = [...(user.notes || []), newNote];
-    updateActiveUser({ notes: updatedNotes });
+  const handleNoteAdded = (newNote: Note) => {
+    const updatedNotes = [...notes, newNote];
 
     // Mostrar solo las notas de la carpeta actual
     setNotes(updatedNotes.filter((note) => note.folderId === newNote.folderId));
-    setShowAddNote(false);
   };
 
   // Validar si la carpeta existe
@@ -68,8 +64,8 @@ const NotesInsideFolder = () => {
         {showAddNote && (
           <AddNote
             folders={folders}
-            onSave={handleAddNote}
             onClose={() => setShowAddNote(false)}
+            onNoteAdded={handleNoteAdded}
           />
         )}
 

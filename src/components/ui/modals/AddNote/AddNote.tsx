@@ -9,15 +9,16 @@ import type { Note } from "../../../../models/note.model";
 // Componentes UI
 import Button from "../../buttons/Button";
 import FolderSelector from "../../other/FolderSelector/FolderSelector";
+import { useNotes } from "../../../../hooks/useNotes";
 
 // Props del componente
 type AddNoteProps = {
   folders: Folder[];
   onClose: () => void;
-  onSave: (newNote: Note) => void;
+  onNoteAdded?: (note: Note) => void;
 };
 
-const AddNote = ({ folders, onClose, onSave }: AddNoteProps) => {
+const AddNote = ({ folders, onClose, onNoteAdded }: AddNoteProps) => {
   // Estado del formulario
   const [form, setForm] = useState({
     title: "",
@@ -25,6 +26,7 @@ const AddNote = ({ folders, onClose, onSave }: AddNoteProps) => {
     folderId: folders[0]?.id || "", // Carpeta seleccionada por defecto
     image: undefined as string | undefined,
   });
+  const { handleSaveNote } = useNotes();
 
   const { title, content, folderId, image } = form;
 
@@ -77,7 +79,11 @@ const AddNote = ({ folders, onClose, onSave }: AddNoteProps) => {
       image,
     };
 
-    onSave(newNote);
+    handleSaveNote(newNote);
+
+    if (onNoteAdded) {
+      onNoteAdded(newNote);
+    }
   };
 
   return (

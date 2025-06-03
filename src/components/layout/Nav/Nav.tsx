@@ -1,12 +1,9 @@
-
 import DailyQuiz from "../../ui/modals/DailyQuiz/DailyQuiz";
 import AddNote from "../../ui/modals/AddNote/AddNote";
 import IconAdd from "../../ui/modals/IconAdd/IconAdd";
 import { Folder } from "../../../models/folder.model";
-import { Note } from "../../../models/note.model";
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useModal } from "../../../hooks/useModal"; // borrar
 
 import "./Nav.scss";
 
@@ -14,7 +11,13 @@ import "./Nav.scss";
 const exampleFolders: Folder[] = [];
 
 function Nav() {
-  const { modalToShow, openModal, closeModal } = useModal(); // aquí
+  const [showQuizModal, setShowQuizModal] = useState(false);
+  const openQuizModal = () => setShowQuizModal(true);
+  const closeQuizModal = () => setShowQuizModal(false);
+
+  const [showAddNote, setShowAddNote] = useState(false);
+  const openAddNote = () => setShowAddNote(true);
+  const closeAddNote = () => setShowAddNote(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -23,12 +26,6 @@ function Nav() {
   // Alterna visibilidad menú flotante
   const toggleIconAdd = () => {
     setIsIconAddVisible((prev) => !prev);
-  };
-
-  // Guarda la nota y cierra modal
-  const handleSaveNote = (newNote: Note) => {
-    console.log("Guardar nota:", newNote);
-    closeModal();
   };
 
   // Chequea si ruta está activa para estilos
@@ -80,30 +77,28 @@ function Nav() {
         <IconAdd
           onClose={toggleIconAdd}
           openModal={(modal) => {
-            openModal(modal);
+            if (modal === "addnote") {
+              openAddNote();
+            } else {
+              openQuizModal();
+            }
             toggleIconAdd();
           }}
-          folders={exampleFolders}
-          onSaveNote={handleSaveNote}
         />
       )}
 
       {/* Modal quiz diario */}
-      {modalToShow === "quiz" && (
+      {showQuizModal && (
         <DailyQuiz
-          onClose={closeModal}
+          onClose={closeQuizModal}
           addNewEntrie={() => {}}
-          openModal={openModal}
+          openModal={openAddNote}
         />
       )}
 
       {/* Modal añadir nota */}
-      {modalToShow === "addnote" && (
-        <AddNote
-          folders={exampleFolders}
-          onClose={closeModal}
-          onSave={handleSaveNote}
-        />
+      {showAddNote && (
+        <AddNote folders={exampleFolders} onClose={closeAddNote} />
       )}
     </div>
   );

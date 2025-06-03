@@ -2,14 +2,10 @@ import useBodyScrollLock from "../../../../hooks/useBodyScrollLock";
 import Button from "../../buttons/Button";
 
 import "./IconAdd.scss";
-import { Folder } from "../../../../models/folder.model";
-import { Note } from "../../../../models/note.model";
 
 interface IconAddProps {
   onClose: () => void;
   openModal: (modal: "quiz" | "addnote") => void;
-  folders: Folder[];
-  onSaveNote: (newNote: Note) => void;
 }
 
 function IconAdd({ onClose, openModal }: IconAddProps) {
