@@ -27,7 +27,7 @@ const AchievementPopup = ({ achievement, onClose }: AchievementPopupProps) => {
         </span>
 
         {/* Título del logro */}
-        <h2 className="achievement-popup__tittle">{achievement.title}</h2>
+        <h2 className="achievement-popup__title">{achievement.title}</h2>
 
         {/* Imagen del logro */}
         <img
@@ -37,7 +37,7 @@ const AchievementPopup = ({ achievement, onClose }: AchievementPopupProps) => {
         />
 
         {/* Subtítulo o descripción corta */}
-        <p className="achievement-popup__subtittle">{achievement.subtitle}</p>
+        <p className="achievement-popup__subtitle">{achievement.subtitle}</p>
 
         {/* Fecha del logro o mensaje si no se ha logrado */}
         <div className="achievement-popup__date">

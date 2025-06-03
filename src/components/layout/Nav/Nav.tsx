@@ -1,4 +1,4 @@
-import { useModal } from "../../../hooks/useModal";
+
 import DailyQuiz from "../../ui/modals/DailyQuiz/DailyQuiz";
 import AddNote from "../../ui/modals/AddNote/AddNote";
 import IconAdd from "../../ui/modals/IconAdd/IconAdd";
@@ -6,6 +6,7 @@ import { Folder } from "../../../models/folder.model";
 import { Note } from "../../../models/note.model";
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useModal } from "../../../hooks/useModal"; // borrar
 
 import "./Nav.scss";
 
@@ -13,7 +14,7 @@ import "./Nav.scss";
 const exampleFolders: Folder[] = [];
 
 function Nav() {
-  const { modalToShow, openModal, closeModal } = useModal();
+  const { modalToShow, openModal, closeModal } = useModal(); // aquí
   const navigate = useNavigate();
   const location = useLocation();
 

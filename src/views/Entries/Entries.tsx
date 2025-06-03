@@ -7,18 +7,22 @@ import GoToAppModal from "../../components/ui/modals/GoToApp/GoToApp";
 import MonthSelector from "../../components/layout/MonthSelector/MonthSelector";
 import EntryCard from "../../components/ui/cards/EntryCard/EntryCard";
 import DailyQuiz from "../../components/ui/modals/DailyQuiz/DailyQuiz";
-import CalendarView from "../../components/ui/other/CalendarView/CalendarView";
 
 import { Entry } from "../../models/entry.model";
 import { useActiveUser } from "../../hooks/useActiveUser";
-import { useModal } from "../../hooks/useModal";
+//import { useModal } from "../../hooks/useModal";
 
 const Entries = () => {
   const { user, updateActiveUser } = useActiveUser();
-  const { modalToShow, openModal, closeModal } = useModal();
+  //const { modalToShow, openModal, closeModal } = useModal(); // esto se borra
 
   const [entries, setEntries] = useState<Entry[]>([]);
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+
+  // Nueva forma para abrir los popups
+  const [showQuizModal, setShowQuizModal] = useState(false);
+  const openQuizModal = () => setShowQuizModal(true);
+  const onCloseQuizModal = () => setShowQuizModal(false);
 
   useEffect(() => {
     if (user?.entries) {
@@ -55,12 +59,12 @@ const Entries = () => {
   };
 
   const filteredEntries = entries.filter((entry) => {
-  const entryDate = new Date(entry.date);
-  return (
-    entryDate.getFullYear() === selectedDate.getFullYear() &&
-    entryDate.getMonth() === selectedDate.getMonth()
-  );
-});
+    const entryDate = new Date(entry.date);
+    return (
+      entryDate.getFullYear() === selectedDate.getFullYear() &&
+      entryDate.getMonth() === selectedDate.getMonth()
+    );
+  });
 
   if (!user) {
     return <p>Cargando usuario activo...</p>;
@@ -79,7 +83,7 @@ const Entries = () => {
           onNextMonth={nextMonth}
         />
 
-        <section className="start-quiz" onClick={() => openModal("quiz")}>
+        <section className="start-quiz" onClick={() => openQuizModal()}>
           <span className="material-symbols-rounded">add_circle</span>
           <p>¿Cómo te sientes hoy?</p>
         </section>
@@ -101,15 +105,13 @@ const Entries = () => {
         </div>
       </div>
 
-      {modalToShow === "quiz" && (
+      {showQuizModal && (
         <DailyQuiz
-          onClose={closeModal}
+          onClose={onCloseQuizModal}
           addNewEntrie={addNewEntrie}
-          openModal={openModal}
+          openModal={openQuizModal}
         />
       )}
-
-      <CalendarView entries={entries} />
 
       <Nav />
     </>

@@ -1,18 +1,22 @@
+// Importa los estilos específicos del componente
 import "./MonthSelector.scss";
 
+// Define los tipos de las props que recibe el componente
 type MonthSelectorProps = {
-  month: number; // 0 a 11
+  month: number;
   year: number;
   onPrevMonth: () => void;
   onNextMonth: () => void;
 };
 
+// Componente funcional para seleccionar el mes y año
 const MonthSelector = ({
   month,
   year,
   onPrevMonth,
   onNextMonth,
 }: MonthSelectorProps) => {
+  // Lista de nombres de los meses en español
   const months = [
     "enero",
     "febrero",
@@ -30,18 +34,23 @@ const MonthSelector = ({
 
   return (
     <div className="month-selector__container">
+      {/* Botón para ir al mes anterior */}
       <button
         onClick={onPrevMonth}
         aria-label="Mes anterior"
-        className="material-symbols-rounded"
+        className="material-symbols-rounded btn-selector"
       >
         chevron_left
       </button>
+
+      {/* Muestra el nombre del mes y el año */}
       <p>{`${months[month]} de ${year}`}</p>
+
+      {/* Botón para ir al mes siguiente */}
       <button
         onClick={onNextMonth}
         aria-label="Mes siguiente"
-        className="material-symbols-rounded"
+        className="material-symbols-rounded btn-selector"
       >
         chevron_right
       </button>
@@ -50,44 +59,3 @@ const MonthSelector = ({
 };
 
 export default MonthSelector;
-
-/* 
-
-ESTE ES EL QUE FUNCIONABA ANTES
-
-const MonthSelector = () => {
-  // Obtener la fecha actual
-  const date = new Date();
-
-  // Array con los nombres de los meses en español
-  const months = [
-    "enero",
-    "febrero",
-    "marzo",
-    "abril",
-    "mayo",
-    "junio",
-    "julio",
-    "agosto",
-    "septiembre",
-    "octubre",
-    "noviembre",
-    "diciembre",
-  ];
-
-  // Obtener el mes y el año actuales
-  const currentMonth = months[date.getMonth()];
-  const currentYear = date.getFullYear();
-
-  return (
-    <div className="month-selector__container">
-      <span className="material-symbols-rounded">chevron_left</span>
-      <p>{`${currentMonth} de ${currentYear}`}</p>
-      <span className="material-symbols-rounded">chevron_right</span>
-    </div>
-  );
-};
-
-export default MonthSelector;
-
-*/

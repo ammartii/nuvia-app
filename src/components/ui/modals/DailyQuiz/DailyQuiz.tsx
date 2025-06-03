@@ -33,7 +33,9 @@ const DailyQuiz = ({ onClose, addNewEntrie, openModal }: DailyQuizProps) => {
   // Retrocede un paso o cierra el modal si está en el primer paso
   const handleBack = () => {
     if (step > 1) setStep(step - 1);
-    else onClose();
+    else {
+      onClose();
+    }
   };
 
   // Finaliza el quiz creando una nueva entrada y cerrando el modal
@@ -65,7 +67,12 @@ const DailyQuiz = ({ onClose, addNewEntrie, openModal }: DailyQuizProps) => {
           chevron_left
         </span>
         <span className="nuvia-header__title">Daily Quiz</span>
-        <span className="material-symbols-rounded" onClick={onClose}>
+        <span
+          className="material-symbols-rounded"
+          onClick={() => {
+            onClose();
+          }}
+        >
           close
         </span>
       </div>

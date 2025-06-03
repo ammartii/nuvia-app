@@ -5,5 +5,5 @@
   padding: var(--padding-other-funcionalities);
 
   @include size(100%, 100%);
-  @include flexbox(flex-start, center, column, nowrap, 12px);
+  @include flex-column-center(12px);
 }

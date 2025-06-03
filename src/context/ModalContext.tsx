@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
-export type ModalType = "addnote" | null; 
+export type ModalType = "quiz" | "addnote" | null;
 
 export interface ModalContextProps {
   modalToShow: ModalType;
@@ -8,4 +8,6 @@ export interface ModalContextProps {
   closeModal: () => void;
 }
 
-export const ModalContext = createContext<ModalContextProps | undefined>(undefined);
+export const ModalContext = createContext<ModalContextProps | undefined>(
+  undefined
+);

@@ -1,4 +1,3 @@
-
 export type ModalType = "quiz" | "addnote" | null;
 
 export interface ModalContextProps {

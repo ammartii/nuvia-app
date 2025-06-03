@@ -1,0 +1,81 @@
+@import "../../styles/Mixins";
+
+.calendar-container {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--bg-color);
+  padding: var(--padding-views);
+
+  @include flex-column-center(12px);
+
+  .react-calendar {
+    min-width: 320px;
+    background: var(--white-color);
+    border: none;
+    border-radius: var(--border-radius-general);
+    padding: 24px;
+    box-shadow: var(--box-shadow-general);
+    z-index: 1;
+
+    font-size: var(--font-size-regular);
+  }
+}
+
+// Día de la semana
+.react-calendar__month-view__weekdays__weekday {
+  abbr {
+    text-decoration: none !important;
+  }
+}
+
+// Día de la semana margen
+.react-calendar__month-view__weekdays {
+  margin-bottom: 12px;
+}
+
+// Días
+.react-calendar__tile {
+  min-height: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 6px;
+}
+
+// Días con entrada
+.calendar-tile-has-entry {
+  background-color: transparent !important;
+  color: var(--black-color) !important;
+}
+
+// Fin de semana
+.calendar-weekend {
+  color: var(--primary-color) !important;
+}
+
+// Contenedor para los iconos de mood debajo del día
+.calendar-mood-icons-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  gap: 6px;
+  margin-top: 6px;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.calendar-mood-icon {
+  object-fit: contain;
+  @include size(24px, 24px);
+}
+
+// Cuando haces click sobre él
+.react-calendar__tile--active {
+  background: var(--primary-light-color) !important;
+  color: var(--primary-color) !important;
+  border-radius: var(--border-radius-general);
+}

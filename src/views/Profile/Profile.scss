@@ -1,28 +1,23 @@
 @import "../../styles/Mixins";
-@import "../../styles/Variables";
 
 .profile-container {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-
+  width: 100%;
   background-color: var(--bg-color);
-  padding: 12px 24px 100px;
+  padding: var(--padding-other-funcionalities);
+  @include column-center(24px);
 }
 
 // Section Premium Banner
 .profile__premium-banner {
-  height: 87px;
   padding: var(--padding-card);
   background-color: var(--primary-color);
   border-radius: var(--border-radius-card);
   box-shadow: var(--box-shadow-general);
   color: var(--white-color);
 
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
+  max-width: 350px;
+  @include size(100%, 87px);
+  @include row-spacebetween-nowrap();
 }
 
 .profile__premium-banner-text {
@@ -40,19 +35,16 @@
 }
 
 .profile__premium-banner-icon {
-  width: 70px;
-  height: 70px;
   background-image: url("../../assets/images/nuvia-clouds.png");
   background-size: cover;
+  @include size(70px, 70px);
 }
 
 // Section Account
 .profile__account {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: left;
-  gap: 10px;
+  width: 100%;
+  max-width: 350px;
+  @include flex-column-left(10px);
 }
 
 .profile__text {
@@ -68,25 +60,17 @@
 }
 
 .profile__user-card {
-  width: 100%;
-  height: 108px;
   padding: var(--padding-card);
   background-color: var(--white-color);
   border-radius: var(--border-radius-card);
   box-shadow: var(--box-shadow-general);
 
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
+  @include size(100%, 108px);
+  @include row-spacebetween-nowrap();
 }
 
 .user-card__text {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
+  @include row-spacebetween-nowrap(12px);
 
   span {
     font-size: var(--font-size-tittle-app);
@@ -95,21 +79,18 @@
 }
 
 .profile__avatar {
-  width: 80px;
-  height: 80px;
   border-radius: 50%;
   background-color: transparent;
   background-size: cover;
   background-position: center;
+  @include size(80px, 80px);
 }
 
 // Section Records
 .profile__records {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: left;
-  gap: 10px;
+  width: 100%;
+  max-width: 350px;
+  @include flex-column-left(10px);
 
   h3 {
     font-size: 14px;
@@ -119,20 +100,22 @@
 }
 
 .profile__record-boxes {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
+  @include row-spacebetween-nowrap(12px);
 }
 
 .profile__record {
-  width: 50%;
-  height: 64px;
   padding: var(--padding-card);
   background-color: var(--white-color);
   border-radius: var(--border-radius-card);
   box-shadow: var(--box-shadow-general);
+
+  @include size(50%, 64px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  gap: 2px;
 
   p {
     font-size: 12px;
@@ -147,9 +130,7 @@
 
 // Section Nav
 .profile__nav {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
+  width: 100%;
+  max-width: 350px;
+  @include column-center(12px);
 }

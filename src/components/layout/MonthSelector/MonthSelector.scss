@@ -5,3 +5,8 @@
   padding: 12px 30px;
   @include flexbox(center, center, row, nowrap, 26px);
 }
+
+.btn-selector {
+  border: none;
+  background-color: transparent;
+}

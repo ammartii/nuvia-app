@@ -28,6 +28,11 @@
   @include flexbox(center, center, row, wrap, $gap);
 }
 
+// Flexbox con fila y nowrap
+@mixin row-spacebetween-nowrap($gap: 0) {
+  @include flexbox(space-between, center, row, nowrap, $gap);
+}
+
 // Flexbox con columna y centrado
 @mixin column-center($gap: 0) {
   @include flexbox(center, center, column, nowrap, $gap);

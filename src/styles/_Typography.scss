@@ -20,10 +20,32 @@ body {
   margin-top: 12px;
 }
 
+// AchievementCard
+.achievement-card__title {
+  @include font-small-black(var(--font-weight-bold));
+}
 
+.achievement-card__subtitle {
+  @include font-xsmall-medium(var(--black-color));
+}
 
+// AchievementPopup
+.achievement-popup__title {
+  font-size: var(--font-size-big);
+  font-weight: var(--font-weight-bold);
+}
 
+.achievement-popup__subtitle {
+  @include font-small-black();
+}
 
+.achievement-popup__date {
+  @include font-small-black();
+}
+
+.achievement-popup__date strong {
+  @include font-small-black(var(--font-weight-bold));
+}
 
 // CLASES ANTIGUAS
 .nav-span {
@@ -38,8 +60,6 @@ body {
   font-weight: 400;
   text-align: left;
 }
-
-
 
 // =====================
 // App Text Styles
@@ -73,45 +93,6 @@ body {
   font-size: 16px;
   font-weight: 400;
   line-height: 40px;
-}
-
-
-
-
-
-
-
-
-
-
-// =====================
-// Achievement Card
-// =====================
-.achievement-card__title {
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.achievement-card__subtitle {
-  font-size: 12px;
-  font-weight: 400;
-}
-
-.achievement-popup__tittle {
-  font-size: 12px;
-  font-weight: 700;
-  margin-top: 20px;
-}
-
-.achievement-popup__subtittle {
-  font-size: 14px;
-  font-weight: 400;
-  padding: 12px;
-}
-
-.achievement-popup__date {
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 // =====================
@@ -152,5 +133,3 @@ body {
 .mood-icon__count {
   font-size: 12px;
 }
-
-// NUEVAS TIPOGRAFÍAS

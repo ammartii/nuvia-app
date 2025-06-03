@@ -15,6 +15,7 @@
 }
 
 .mood-analysis__container {
+  max-width: 350px;
   @include card-properties(24px);
 }
 

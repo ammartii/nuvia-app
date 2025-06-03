@@ -10,7 +10,8 @@ import { achievementsData, Achievement } from "../../constants/achievements";
 
 const Achievements = () => {
   // Estado para controlar el logro seleccionado en el popup
-  const [selectedAchievement, setSelectedAchievement] = useState<Achievement | null>(null);
+  const [selectedAchievement, setSelectedAchievement] =
+    useState<Achievement | null>(null);
 
   // Ordena los logros para mostrar primero los logrados
   const sortedAchievements = [...achievementsData].sort((a, b) =>
@@ -18,7 +19,7 @@ const Achievements = () => {
   );
 
   return (
-    <div>
+    <>
       {/* Modal para redirigir si se accede desde desktop */}
       <GoToAppModal />
 
@@ -52,7 +53,7 @@ const Achievements = () => {
 
       {/* Barra de navegación inferior */}
       <Nav />
-    </div>
+    </>
   );
 };
 

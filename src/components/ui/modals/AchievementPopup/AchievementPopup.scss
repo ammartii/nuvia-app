@@ -6,6 +6,7 @@
 
 .popup-content {
   @include modal-content;
+  justify-content: space-evenly;
 }
 
 .popup-close {
@@ -16,3 +17,4 @@
   border: none;
   cursor: pointer;
 }
+
