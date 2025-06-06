@@ -10,11 +10,9 @@ import DailyQuiz from "../../components/ui/modals/DailyQuiz/DailyQuiz";
 
 import { Entry } from "../../models/entry.model";
 import { useActiveUser } from "../../hooks/useActiveUser";
-//import { useModal } from "../../hooks/useModal";
 
 const Entries = () => {
   const { user, updateActiveUser } = useActiveUser();
-  //const { modalToShow, openModal, closeModal } = useModal(); // esto se borra
 
   const [entries, setEntries] = useState<Entry[]>([]);
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
@@ -58,6 +56,7 @@ const Entries = () => {
     setSelectedDate(newDate);
   };
 
+  console.log(entries);
   const filteredEntries = entries.filter((entry) => {
     const entryDate = new Date(entry.date);
     return (

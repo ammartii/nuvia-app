@@ -4,22 +4,65 @@
 .auth-form {
   @include size(); // width: 100%, height: 100vh
   @include flexbox(flex-start, center);
+
+  @include mobile {
+    @include flexbox(flex-start, center, column);
+    background-image: url("../../assets/images/sideimg.png");
+    background-size: cover;
+    background-position: center;
+  }
 }
 
 .auth-form__container {
   padding: var(--padding-registration);
-  @include flexbox(flex-start, stretch, column);
+  padding-top: 115px;
+  gap: 24px;
+  @include size(60%, 100vh);
+  @include flexbox(center, flex-start, column);
+
+  @include tablet {
+    padding: 48px;
+    padding-top: 115px;
+  }
+
+  @include mobile {
+    width: 100%;
+    height: 90vh;
+    gap: 0px;
+
+    padding-bottom: 60px;
+    @include flexbox(flex-start, center, column);
+  }
 }
 
 .auth-form__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   margin: 72px 0;
+
+  // Dispositivos
+  @include tablet {
+    grid-template-columns: repeat(1, 1fr);
+    margin: 40px 0;
+  }
+
+  @include mobile {
+    grid-template-columns: repeat(1, 1fr);
+    margin: 24px 0;
+  }
 }
 
 .register-grid {
   grid-template-columns: repeat(2, 1fr);
+
+  // Dispositivos
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
 }
 
 .login-grid {
@@ -38,17 +81,42 @@
 .auth-form-steps__container {
   max-width: 1154px;
   margin: auto;
+  @include size(100%, 700px);
+  @include card-properties(0, var(--border-radius-big-popup), 6px);
 
-  @include size(100%, 665px);
-  @include card-properties(
-    var(--padding-registration),
-    var(--border-radius-big-popup),
-    6px
-  );
+  // Dispositivos
+  @include desktop {
+    @include size(90%, 700px);
+  }
+
+  @include tablet {
+    @include size(80%, 700px);
+    padding: 40px;
+  }
+
+  @include mobile {
+    @include size(90%, 80vh);
+    padding: 24px;
+  }
 }
 
 .auth-form-steps__content {
   width: auto;
+  overflow-x: auto;
   margin: var(--margin-medium);
   @include flexbox(center, center, row, wrap);
+
+  // Dispositivos
+  @include desktop {
+    height: 350px;
+  }
+
+  @include tablet {
+    margin: var(--margin-medium) 0;
+    height: 400px;
+  }
+
+  @include mobile {
+    height: 450px;
+  }
 }

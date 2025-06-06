@@ -1,18 +1,31 @@
 @import "./Mixins";
 
-// Avatar 
+// Avatar Registration (adaptado a dispositivos)
 .avatar-image {
-  width: 125px;
-  height: 125px;
   border-radius: var(--border-radius-circle);
-  cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   margin: var(--margin-12);
   object-fit: contain;
+  cursor: pointer;
+
+  @include size(125px, 125px);
 
   &:hover {
     transform: scale(1.1);
     box-shadow: var(--box-shadow-general);
+  }
+
+  @include desktop {
+    @include size(115px, 115px);
+  }
+
+  @include tablet {
+    @include size(100px, 100px);
+  }
+
+  @include mobile {
+    margin: 6px;
+    @include size(80px, 80px);
   }
 }
 
@@ -22,18 +35,13 @@
   box-shadow: var(--box-shadow-general);
 }
 
-// =====================
 // Motivation Card Image
-// =====================
 .img-motivation-card {
   width: 70px;
   height: 70px;
   object-fit: contain;
   margin-right: 12px;
 }
-
-
-
 
 // =====================
 // Achievement Card Images

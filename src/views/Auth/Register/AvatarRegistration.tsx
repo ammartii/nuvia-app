@@ -56,7 +56,7 @@ const AvatarRegistration = () => {
           Selecciona el avatar que te va a acompañar durante este viaje.
         </h3>
 
-        <div className="auth-form-steps__content">
+        <div className="auth-form-steps__content" style={{ width: "80%" }}>
           {avatars.map((src, index) => (
             <img
               key={index}

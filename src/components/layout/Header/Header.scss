@@ -2,7 +2,6 @@
 @import "../../../styles/Variables";
 
 .landing-header {
-  @include flexbox(space-between, center);
   padding: var(--padding-header);
   position: fixed;
   top: 0;
@@ -10,12 +9,39 @@
   right: 0;
   z-index: var(--z-index-header);
 
+  @include flexbox(space-between, center);
+
   &__left {
     @include flexbox(flex-start, center);
   }
 
   &__right {
     @include flexbox(flex-start, center, row, nowrap, 1rem);
+  }
+
+  @include desktop {
+    padding: 48px;
+
+    &__right {
+      gap: 0.75rem;
+    }
+  }
+
+  @include tablet {
+    width: 100%;
+    padding: 40px;
+
+    &__right {
+      gap: 0.5rem;
+    }
+  }
+
+  @include mobile {
+    padding: 24px;
+
+    &__right {
+      gap: 0.5rem;
+    }
   }
 }
 

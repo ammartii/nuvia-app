@@ -32,8 +32,6 @@
   --padding-header: 24px 72px;
   --padding-input: 24px 12px;
 
-  
-
   // Padding - new
   --padding-general: 12px;
   --padding-general-items: 12px 24px;
@@ -76,10 +74,15 @@
 
   // NUEVAS TIPOS
   --font-size-xsmall: 12px;
-  --font-size-small: 14px;
+  //--font-size-small: 14px;clamp(10px, 1.2vw, 14px);
   --font-size-big: 18px;
-  --font-size-large: 28px;
-  --font-size-xlarge: 48px;
+  // --font-size-large: 28px;
+  //--font-size-xlarge: 48px;
+
+  // Tipografías con clamp
+  --font-size-small: clamp(10px, 1.2vw, 14px);
+  --font-size-large: clamp(18px, 2.3vw, 28px);
+  --font-size-xlarge: clamp(30px, 3.5vw, 48px);
 
   /* Text spacing */
   --btn-spacing: 0.9px;

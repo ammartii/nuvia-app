@@ -1,7 +1,7 @@
 @import "../../../../styles/Mixins";
 
 .form-group {
-  @include flex-column-left(6px);
+  @include flex-column-left();
 
   &:has(input:focus) {
     .form-label {
@@ -21,15 +21,44 @@
 // Pendiente reubicar (?)
 .form-label {
   margin-bottom: var(--margin-regular);
-  @include font-small-black(var(--font-weight-bold));
+  color: var(--black-color);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-bold);
+
+  @include tablet {
+    font-size: 12px;
+  }
 }
 
+// Campo de entrada
 .form-input {
+  background-color: transparent;
   margin-bottom: var(--margin-regular);
   @include size(380px, 50px);
   @include input-border;
 
   &::placeholder {
-    @include font-small-black();
+    color: var(--black-color);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-regular);
+
+    @include tablet {
+      font-size: 12px;
+    }
+  }
+
+  // Dispositivos
+  @include desktop {
+    @include size(320px, 48px);
+  }
+
+  @include tablet {
+    @include size(305px, 40px);
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+
+  @include mobile {
+    max-width: 305px;
   }
 }
