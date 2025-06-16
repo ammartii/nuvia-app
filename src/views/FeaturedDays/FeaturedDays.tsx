@@ -6,14 +6,14 @@ import EntrieCard from "../../components/ui/cards/EntryCard/EntryCard";
 import GoToAppModal from "../../components/ui/modals/GoToApp/GoToApp";
 
 import { useActiveUser } from "../../hooks/useActiveUser";
-import { Entrie } from "../../models/entry.model";
+import { Entry } from "../../models/entry.model";
 
 const FeaturedDays = () => {
   // Obtener usuario activo con sus entradas
   const { user } = useActiveUser();
 
   // Estado local para almacenar entradas favoritas
-  const [favorites, setFavorites] = useState<Entrie[]>([]);
+  const [favorites, setFavorites] = useState<Entry[]>([]);
 
   // Filtrar las entradas favoritas al cargar el componente o cambiar el usuario
   useEffect(() => {
