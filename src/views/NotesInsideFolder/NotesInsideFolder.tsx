@@ -1,24 +1,20 @@
-import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-
 import "./NotesInsideFolder.scss";
-
 import Nav from "../../components/layout/Nav/Nav";
 import NuviaHeader from "../../components/layout/NuviaHeader/NuviaHeader";
-import { NoteCard } from "../../components/ui/cards/NoteCard/NoteCard";
 import Button from "../../components/ui/buttons/Button";
 import AddNote from "../../components/ui/modals/AddNote/AddNote";
 import GoToAppModal from "../../components/ui/modals/GoToApp/GoToApp";
-
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import type { Folder } from "../../models/folder.model";
 import type { Note } from "../../models/note.model";
-
+import { NoteCard } from "../../components/ui/cards/NoteCard/NoteCard";
 import { useActiveUser } from "../../hooks/useActiveUser";
 
 const NotesInsideFolder = () => {
-  const { folderId } = useParams<{ folderId: string }>();
   const navigate = useNavigate();
   const { user } = useActiveUser();
+  const { folderId } = useParams<{ folderId: string }>();
 
   const [folder, setFolder] = useState<Folder | null>(null);
   const [notes, setNotes] = useState<Note[]>([]);

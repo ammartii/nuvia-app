@@ -1,23 +1,27 @@
+import "./Nav.scss";
 import DailyQuiz from "../../ui/modals/DailyQuiz/DailyQuiz";
 import AddNote from "../../ui/modals/AddNote/AddNote";
 import IconAdd from "../../ui/modals/IconAdd/IconAdd";
-import { Folder } from "../../../models/folder.model";
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-
-import "./Nav.scss";
-
-// Carpeta de ejemplo (puedes reemplazar por tu estado o contexto real)
-const exampleFolders: Folder[] = [];
+import { useActiveUser } from "../../../hooks/useActiveUser";
 
 function Nav() {
+  // Accede al usuario y a sus carpetas
+  const { user } = useActiveUser();
+  const folders = user?.folders || [];
+
+  // Abrir Quiz Modal
   const [showQuizModal, setShowQuizModal] = useState(false);
   const openQuizModal = () => setShowQuizModal(true);
   const closeQuizModal = () => setShowQuizModal(false);
 
+  // Abrir AddNote
   const [showAddNote, setShowAddNote] = useState(false);
   const openAddNote = () => setShowAddNote(true);
   const closeAddNote = () => setShowAddNote(false);
+
+  // Navegar entre páginas
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -97,9 +101,7 @@ function Nav() {
       )}
 
       {/* Modal añadir nota */}
-      {showAddNote && (
-        <AddNote folders={exampleFolders} onClose={closeAddNote} />
-      )}
+      {showAddNote && <AddNote folders={folders} onClose={closeAddNote} />}
     </div>
   );
 }

@@ -142,11 +142,10 @@ const AddNote = ({ folders, onClose, onNoteAdded }: AddNoteProps) => {
           <Button variant="purple" onClick={handleSave} type="submit">
             Guardar nota
           </Button>
-          {/*
+
           <Button variant="outline" onClick={onClose} type="button">
             Cancelar
           </Button>
-           */}
         </div>
       </div>
     </div>
