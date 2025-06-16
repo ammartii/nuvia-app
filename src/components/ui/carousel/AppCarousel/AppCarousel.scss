@@ -1,0 +1,56 @@
+.app-carousel {
+  width: 90%;
+  max-width: 1400px;
+  overflow: hidden;
+  margin: 0 auto;
+  user-select: none;
+  padding: 24px;
+}
+
+.app-carousel__container {
+  display: flex;
+}
+
+.app-carousel__slide {
+  flex: 0 0 20%; // 5 slides visibles en fila
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+
+.app-carousel__img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: var(--box-shadow-general);
+  transition: transform 0.3s ease;
+}
+
+.app-carousel__img:hover {
+  transform: scale(1.05);
+}
+
+// --- MEDIA QUERIES ---
+
+// Tablet
+@media (max-width: 1024px) and (min-width: 768px) {
+  .app-carousel {
+    padding: 16px;
+  }
+
+  .app-carousel__slide {
+    flex: 0 0 25%; // 4 items visibles
+  }
+}
+
+// Móvil
+@media (max-width: 767px) {
+  .app-carousel {
+    padding: 12px;
+  }
+
+  .app-carousel__slide {
+    flex: 0 0 50%; // 2 items visibles
+    padding: 0 0.25rem;
+  }
+}
