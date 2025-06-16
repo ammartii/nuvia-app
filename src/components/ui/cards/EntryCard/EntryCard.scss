@@ -7,31 +7,32 @@
   @include flexbox(space-between, center, row, nowrap, 12px);
 }
 
-// Pendiente reubicar (?)
-.entry-card__image {
-  @include size(50px, 50px);
-}
-
+// Tipografía
 .entry-card__text-container {
-  width: 190px;
-  height: auto;
+  @include size(100%, auto);
 }
 
 .entry-card__date {
   text-transform: uppercase;
-  @include font-xsmall-medium(var(--black-color));
+  font-size: var(--font-size-xsmall-app);
+  font-weight: var(--font-weight-regular);
 }
 
 .entry-card__text {
-  font-size: var(--font-size-big);
+  font-size: var(--font-size-big-app);
   font-weight: var(--font-weight-bold);
   line-height: 25px;
+}
+
+// Imágenes
+.entry-card__image {
+  @include size(50px, 50px);
 }
 
 .entry-card__icons {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 6px;
 
   .star-icon {
     cursor: pointer;

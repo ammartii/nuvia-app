@@ -3,7 +3,7 @@
 .entries__page {
   background-color: var(--bg-color);
   padding: var(--padding-views);
-  @include size();
+  @include size(100%, 100%);
   @include flexbox(flex-start, center, column, nowrap, 12px);
 }
 
@@ -23,7 +23,7 @@
   }
 
   p {
-    font-size: var(--font-size-big);
+    font-size: var(--font-size-big-app);
     font-weight: var(--font-weight-bold);
   }
 }

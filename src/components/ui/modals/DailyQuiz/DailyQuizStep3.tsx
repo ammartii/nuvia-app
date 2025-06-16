@@ -16,11 +16,11 @@ const DailyQuizStep3 = ({ onFinish, onAddNote }: DailyQuizStep3Props) => {
 
       {/* Botones para crear una nota o finalizar el quiz */}
       <div className="step3__content">
-        <Button variant="outline" onClick={onAddNote}>
+        <Button variant="purple" onClick={onAddNote}>
           Crear nota
         </Button>
-        <Button variant="purple" onClick={onFinish}>
-          Finalizar
+        <Button variant="outline" onClick={onFinish}>
+          No, Finalizar
         </Button>
       </div>
     </div>

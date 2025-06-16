@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import Header from "../../components/layout/Header/Header";
 import Button from "../../components/ui/buttons/Button";
 
+import clouds from "../../assets/images/nuvia-clouds.png";
 import imgWelcome from "../../assets/images/app-welcome.png";
-import appContent01 from "../../assets/images/app-content-01.png";
-//import appGroup from "../../assets/images/app-group.png";
+//import appContent01 from "../../assets/images/app-content-01.png";
+import appGroup from "../../assets/images/app-group.png";
 
 const Landing = () => {
   const customHeaderContent = (
@@ -27,10 +28,26 @@ const Landing = () => {
       {/* Contenido de la página */}
 
       {/* Hero */}
-      <section className="hero">
-        <h1>Cruzar nubes tambiés es avanzar </h1>
-        <p>Escúchate, escribe y acompaña tu proceso paso a paso</p>
-        <Button variant="primary">Descubre Nuvia</Button>
+      <section className="hero__container">
+        <div className="hero__background-images">
+          <img src={clouds} alt="Clouds" className="hero-cloud hero-cloud-1" />
+          <img src={clouds} alt="Clouds" className="hero-cloud hero-cloud-2" />
+          <img src={clouds} alt="Clouds" className="hero-cloud hero-cloud-3" />
+          <img src={clouds} alt="Clouds" className="hero-cloud hero-cloud-4" />
+          <img src={clouds} alt="Clouds" className="hero-cloud hero-cloud-5" />
+        </div>
+
+        <div className="hero__content">
+          <h1>Cruzar nubes también es avanzar </h1>
+          <p>
+            Una app que te acompaña en tu viaje interior: entiende lo que
+            sientes, cuídate a tu ritmo y celebra cada pequeño paso.
+          </p>
+          <Button variant="primary">
+            Descubre Nuvia
+            <span className="material-symbols-rounded">arrow_outward</span>
+          </Button>
+        </div>
       </section>
 
       {/* Inner journey */}
@@ -52,8 +69,23 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* AppContent Section */}
+      {/* AppContent Section  */}
       <section className="app-content-section">
+        <div className="app-content">
+          <p>Registra tu estado de ánimo</p>
+          <div></div>
+        </div>
+        <div className="app-content">
+          <p>Haz un seguimiento de tu mes</p>
+          <div></div>
+        </div>
+        <div className="app-content">
+          <p>Registra tus pensamientos</p>
+          <div></div>
+        </div>
+      </section>
+
+      {/* <section className="app-content-section">
         <div className="app-tittle">
           <h2>Escúchate, escribe y acompaña tu proceso paso a paso</h2>
         </div>
@@ -62,16 +94,15 @@ const Landing = () => {
           <img src={appContent01} alt="Contenido 2" />
           <img src={appContent01} alt="Contenido 3" />
         </div>
-      </section>
+      </section>*/}
 
-      {/* App Store Section
+      {/* App Store Section*/}
       <section className="download-section">
         <h2>Descárgala pronto en la AppStore...</h2>
         <div className="phones">
           <img src={appGroup} alt="App Phones" />
         </div>
       </section>
-       */}
     </div>
   );
 };

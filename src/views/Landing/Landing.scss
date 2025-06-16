@@ -3,122 +3,178 @@
 
 .landing-container {
   text-align: center;
+}
 
-  .hero {
-    height: 100vh;
-    background: var(--bg-color);
+.hero__container {
+  position: relative;
+  overflow: hidden;
+  @include size(100vw, 100vh);
+  @include flexbox(space-between, center, column);
 
-    /*
-    // Falta añadir la imagen de fondo
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    */
+  .hero__background-images {
+    position: absolute;
+    background: var(--primary-light-color);
+    z-index: var(--z-index-welcome-bg);
+    @include size(100%, 100%);
 
-    @include flexbox(center, center, column, nowrap, 12px);
+    .hero-cloud {
+      position: absolute;
+      height: auto;
+      z-index: 0;
+      animation: cloud-float 5s ease-in-out infinite;
+    }
+
+    .hero-cloud-1 {
+      top: 10%;
+      left: 18%;
+      width: 10%;
+    }
+
+    .hero-cloud-2 {
+      top: 13%;
+      left: 5%;
+      width: 16%;
+    }
+
+    .hero-cloud-3 {
+      top: 12%;
+      right: 5%;
+      width: 16%;
+    }
+
+    .hero-cloud-4 {
+      bottom: 0;
+      right: 1%;
+      width: 30%;
+    }
+
+    .hero-cloud-5 {
+      bottom: 2%;
+      left: 5%;
+      width: 25%;
+    }
+
+    // Animación nubes
+    @keyframes cloud-float {
+      0% {
+        transform: translate(0) translateY(0);
+      }
+      50% {
+        transform: translate(0) translateY(-5%);
+      }
+      100% {
+        transform: translate(0) translateY(0);
+      }
+    }
+  }
+
+  .hero__content {
+    position: relative;
+    text-align: center;
+    z-index: var(--z-index-welcome-content);
+    margin: auto;
+    @include size(60%, auto);
+    @include flexbox(space-between, center, column, nowrap, 24px);
 
     h1 {
-      width: 90%;
-      font-size: 96px;
+      font-size: 80px;
       font-weight: bold;
-      line-height: 80px;
-      color: var(--primary-color);
+      line-height: 75px;
+      color: var(--black-color);
     }
 
     p {
-      font-size: 30px;
+      font-size: 20px;
+      line-height: 35px;
       font-weight: normal;
-      margin-top: 24px;
-      margin-bottom: 52px;
+      margin-bottom: 12px;
     }
   }
+}
 
-  .inner-journey {
-    width: 100%;
-    height: 100vh;
-    padding: 48px;
-    background: var(--bg-color);
+.inner-journey {
+  width: 100%;
+  height: 90vh;
+  background: var(--bg-color);
 
-    @include flexbox(space-evenly, center, row, wrap, 12px);
+  @include flexbox(center, center, row, wrap, 24px);
 
-    .text-content {
-      max-width: 600px;
-      text-align: left;
-      @include flexbox(center, flex-start, column, nowrap, 24px);
-
-      h2 {
-        font-size: 72px;
-        line-height: 70px;
-
-        strong {
-          color: var(--primary-color);
-        }
-      }
-
-      p {
-        font-size: 20px;
-        line-height: 1.5;
-      }
-    }
-
-    .phone-image {
-      img {
-        max-width: 600px;
-      }
-    }
-  }
-
-  .app-content-section {
-    height: 100vh;
-    background: var(--bg-color);
-
-    position: relative;
-    overflow: visible;
-
-    @include flexbox(center, center, column, nowrap, 24px);
-
-    .app-tittle {
-      width: 90%;
-      max-height: 400px;
-      background: var(--primary-color);
-      padding: 48px 96px;
-      border-radius: var(--border-radius-general);
-
-      h2 {
-        color: var(--white-color);
-        font-size: 48px;
-        font-weight: bold;
-        margin-bottom: 90px;
-      }
-    }
-
-    .app-content {
-      width: 90%;
-      margin-top: -6rem;
-      @include flexbox(center, center, row, wrap, 0);
-
-      img {
-        max-width: 400px;
-      }
-    }
-  }
-
-  .download-section {
-    height: 100%;
-    background: var(--bg-color);
-    @include flexbox(space-between, center, column, nowrap, 48px);
+  .text-content {
+    max-width: 600px;
+    text-align: left;
+    @include flexbox(center, flex-start, column, nowrap, 24px);
 
     h2 {
-      margin-top: 48px;
-      width: 50%;
-      font-size: 72px;
-      color: var(--primary-color);
+      font-size: 48px;
+      font-weight: 400;
+
+      strong {
+        font-weight: 400;
+        color: var(--primary-color);
+      }
     }
 
-    .phones {
-      img {
-        max-width: 800px;
-      }
+    p {
+      font-size: 20px;
+      line-height: 25px;
+    }
+  }
+
+  .phone-image {
+    img {
+      max-width: 600px;
+    }
+  }
+}
+
+.app-content-section {
+  height: 90vh;
+  width: 100%;
+  background: var(--bg-color);
+
+  position: relative;
+  overflow: visible;
+
+  @include flexbox(center, center, row, nowrap, 24px);
+
+  .app-content {
+    background-color: var(--primary-light-color);
+    border-radius: 24px;
+    padding: 24px;
+    padding-top: 48px;
+
+    @include size(33%, 100%);
+
+    p {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--black-color);
+      text-transform: uppercase;
+    }
+    img {
+      max-width: 400px;
+    }
+  }
+}
+
+// Otra sección
+
+.download-section {
+  height: 100%;
+  background: var(--primary-light-color);
+  @include flexbox(center, center, column, nowrap, 48px);
+
+  h2 {
+    margin-top: 100px;
+    width: 70%;
+    font-size: 48px;
+    font-weight: 400;
+    color: var(--primary-color);
+  }
+
+  .phones {
+    img {
+      max-width: 1000px;
     }
   }
 }

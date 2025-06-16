@@ -73,11 +73,11 @@
   --font-size-icons: 30px;
 
   // NUEVAS TIPOS
-  --font-size-xsmall: 12px;
-  //--font-size-small: 14px;clamp(10px, 1.2vw, 14px);
-  --font-size-big: 18px;
-  // --font-size-large: 28px;
-  //--font-size-xlarge: 48px;
+  --font-size-xsmall-app: 12px;
+  --font-size-small-app: 14px;
+  --font-size-big-app: 18px;
+  --font-size-large-app: 28px;
+  --font-size-xlarge-app: 48px;
 
   // Tipografías con clamp
   --font-size-small: clamp(10px, 1.2vw, 14px);

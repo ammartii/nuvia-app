@@ -31,3 +31,13 @@
   min-width: 80px;
   @include flexbox(center, center, column, nowrap);
 }
+
+// Tipografía
+.mood-analysis__title {
+  font-size: var(--font-size-big-app);
+  font-weight: var(--font-weight-bold);
+}
+
+.mood-icon__count {
+  font-size: var(--font-size-xsmall-app);
+}

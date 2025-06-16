@@ -90,12 +90,6 @@ $breakpoint-desktop: 1024px;
   outline: none;
 }
 
-
-
-
-
-
-
 // =====================
 // Modales
 // =====================
@@ -174,10 +168,6 @@ $breakpoint-desktop: 1024px;
   cursor: pointer;
 }
 
-// =====================
-// Mood Analysis
-// =====================
-
 // Base para tarjetas de análisis de estado de ánimo con scroll horizontal opcional
 @mixin mood-analysis-card__base($wrap) {
   width: 100%;
@@ -197,31 +187,22 @@ $breakpoint-desktop: 1024px;
 // cambiar el medium por regular
 @mixin font-xsmall-medium($color: var(--grey-color)) {
   color: $color;
-  font-size: var(--font-size-xsmall);
+  font-size: var(--font-size-xsmall-app);
   font-weight: var(--font-weight-regular);
 }
 
 // Incluido en AuthForm (2) + AuthCommon (1)
 @mixin font-small-black($font-weight: var(--font-weight-regular)) {
   color: var(--black-color);
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-small-app);
   font-weight: $font-weight;
 }
-
-
-
-
-
-
-
-
-
 
 // Cambios generales tipografía
 // No incluido
 @mixin text-properties(
   $color: var(--black-color),
-  $font-size: var(--font-size-small),
+  $font-size: var(--font-size-small-app),
   $font-weight: var(--font-weight-medium)
 ) {
   color: $color;

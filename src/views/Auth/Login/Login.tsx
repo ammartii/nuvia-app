@@ -35,7 +35,7 @@ const Login = () => {
     if (matchedUser) {
       alert("Inicio de sesión exitoso");
       loginUser(matchedUser.id);
-      navigate("/welcome");
+      navigate("/entries");
     } else {
       alert("Correo o contraseña incorrectos");
     }

@@ -1,23 +1,16 @@
 @import "../../styles/Mixins";
 
 .calendar-container {
-  width: 100%;
-  height: 100vh;
   background-color: var(--bg-color);
   padding: var(--padding-views);
-
+  @include size();
   @include flex-column-center(12px);
 
   .react-calendar {
     min-width: 320px;
-    background: var(--white-color);
     border: none;
-    border-radius: var(--border-radius-general);
-    padding: 24px;
-    box-shadow: var(--box-shadow-general);
-    z-index: 1;
-
-    font-size: var(--font-size-regular);
+    font-size: var(--font-size-big-app);
+    @include other-card-properties();
   }
 }
 
@@ -25,6 +18,8 @@
 .react-calendar__month-view__weekdays__weekday {
   abbr {
     text-decoration: none !important;
+    font-size: var(--font-size-small-app);
+    font-weight: var(--font-weight-bold);
   }
 }
 
@@ -35,12 +30,8 @@
 
 // Días
 .react-calendar__tile {
-  min-height: 70px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding-top: 6px;
+  min-height: 80px;
+  @include flex-column-center(6px);
 }
 
 // Días con entrada
@@ -56,12 +47,9 @@
 
 // Contenedor para los iconos de mood debajo del día
 .calendar-mood-icons-container {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  gap: 6px;
   margin-top: 6px;
   overflow-x: auto;
+  @include flexbox(flex-start, center, row, nowrap, 6px);
 
   &::-webkit-scrollbar {
     display: none;

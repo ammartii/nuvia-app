@@ -22,7 +22,7 @@
 .form-label {
   margin-bottom: var(--margin-regular);
   color: var(--black-color);
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-small-app);
   font-weight: var(--font-weight-bold);
 
   @include tablet {
@@ -39,7 +39,7 @@
 
   &::placeholder {
     color: var(--black-color);
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-small-app);
     font-weight: var(--font-weight-regular);
 
     @include tablet {

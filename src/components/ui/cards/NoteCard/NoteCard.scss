@@ -14,12 +14,12 @@
 }
 
 .note-card__name {
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-small-app);
   margin-bottom: 6px;
 }
 
 .note-card__content {
-  font-size: var(--font-size-xsmall);
+  font-size: var(--font-size-xsmall-app);
   word-wrap: break-word;
   overflow-wrap: break-word;
   white-space: normal;

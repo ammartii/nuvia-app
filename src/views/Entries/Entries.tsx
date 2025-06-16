@@ -89,7 +89,7 @@ const Entries = () => {
 
         <div className="entries__container">
           {filteredEntries.length === 0 ? (
-            <p>No hay entradas para este mes.</p>
+            <p className="no-things-text">No hay entradas para este mes.</p>
           ) : (
             filteredEntries.map((entry) => (
               <EntryCard

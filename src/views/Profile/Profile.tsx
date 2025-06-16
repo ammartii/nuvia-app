@@ -26,18 +26,16 @@ const Profile = () => {
         {/* Section Premium Banner */}
         <section className="profile__premium-banner">
           <div className="profile__premium-banner-text">
-            <h3>Pase Premium</h3>
-            <p>¡Accede a todas las funciones!</p>
+            <h3 className="profile__title ">Pase Premium</h3>
+            <p className="profile__text">¡Accede a todas las funciones!</p>
           </div>
           <div className="profile__premium-banner-icon" />
         </section>
 
         {/* Section Account */}
-        <section className="profile__account">
-          <div className="profile__text">
-            <h3>Cuenta</h3>
-          </div>
-          <div className="profile__user-card">
+        <section className="profile-account">
+          <h3 className="profile__title ">Cuenta</h3>
+          <div className="profile-account__user-card">
             <div className="user-card__text">
               <div
                 className="profile__avatar"
@@ -56,15 +54,15 @@ const Profile = () => {
         </section>
 
         {/* Section Records */}
-        <section className="profile__records">
-          <h3>Mis registros</h3>
-          <div className="profile__record-boxes">
-            <div className="profile__record">
-              <p>Registros</p>
+        <section className="profile-records">
+          <h3 className="profile__title ">Mis registros</h3>
+          <div className="profile-records__boxes">
+            <div className="profile-records__record">
+              <p className="profile__text">Registros</p>
               <span>{entriesCount}</span>
             </div>
-            <div className="profile__record">
-              <p>Fotos</p>
+            <div className="profile-records__record">
+              <p className="profile__text">Fotos</p>
               <span>{photosCount}</span>
             </div>
           </div>

@@ -42,7 +42,7 @@
   height: auto;
 
   h3 {
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-large-app);
     font-weight: var(--font-weight-bold);
     color: var(--primary-color);
     padding: 0 24px;
@@ -62,7 +62,7 @@
     }
 
     span {
-      font-size: var(--font-size-big);
+      font-size: var(--font-size-big-app);
       font-weight: var(--font-weight-regular);
     }
   }
@@ -101,7 +101,7 @@
   padding-bottom: var(--padding-general);
   overflow: scroll;
 
-  @include size(100%, 450px);
+  @include size(100%, 600px);
   @include flexbox(center, center, row, wrap, 12px);
 }
 
@@ -125,7 +125,7 @@
 
   span {
     text-align: center;
-    font-size: var(--font-size-xsmall);
+    font-size: var(--font-size-xsmall-app);
     color: var(--grey-color);
   }
 

@@ -2,13 +2,16 @@
 
 .motivation-card {
   max-width: 300px;
-  padding: var(--padding-card);
   margin: var(--margin-card);
+
+  padding: var(--padding-card);
   background-color: var(--white-color);
   border: var(--border-motivation-card);
   border-radius: var(--border-radius-card);
+
   transition: var(--transition-card);
   cursor: pointer;
+
   @include size(auto, 80px);
   @include flexbox(flex-start, center);
 
@@ -28,12 +31,3 @@
 .motivation-card.selected {
   border: var(--border-hover);
 }
-
-// creo que no se usa
-/*
-.motivations-flex {
-  margin-top: 20px;
-  padding: 0 16px;
-  @include flexbox(space-evenly, stretch, row, wrap, 16px);
-}
-  */

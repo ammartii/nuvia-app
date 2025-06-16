@@ -1,14 +1,15 @@
 @import "../../../../styles/Mixins";
 
 .achievement-card {
-  width: 350px;
+  @include size(350px, 100%);
+  @include flexbox(flex-start, center);
+
   min-height: 120px;
   padding: var(--padding-12);
   margin-bottom: var(--margin-12);
   background-color: var(--white-color);
   border-radius: var(--border-radius-card);
   box-shadow: var(--box-shadow-general);
-  @include flexbox(flex-start, center);
 
   &.not-achieved {
     filter: grayscale(100%);
@@ -19,4 +20,17 @@
 .achievement-card__text-container {
   padding: var(--padding-12);
   @include flexbox(center, left, column, nowrap, 3px);
+}
+
+// Tipografía
+.achievement-card__title {
+  color: var(--black-color);
+  font-size: var(--font-size-small-app);
+  font-weight: var(--font-weight-bold);
+}
+
+.achievement-card__subtitle {
+  color: var(--black-color);
+  font-size: var(--font-size-xsmall-app);
+  font-weight: var(--font-weight-regular);
 }
