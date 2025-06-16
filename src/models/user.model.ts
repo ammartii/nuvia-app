@@ -1,6 +1,6 @@
 import { Folder } from "./folder.model";
 import { Note } from "./note.model";
-import { Entrie } from "./entry.model";
+import { Entry } from "./entry.model";
 import { MotivationItem } from "./motivation.model";
 
 export interface User {
@@ -13,7 +13,7 @@ export interface User {
 
   folders?: Folder[];
   notes?: Note[];
-  entries?: Entrie[];
+  entries?: Entry[];
   motivations?: MotivationItem[];
-  favorites?: Entrie[];
+  favorites?: Entry[];
 }
