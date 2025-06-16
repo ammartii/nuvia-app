@@ -1,4 +1,4 @@
-@import "../../../../styles/Mixins";
+@use "../../../../styles/Mixins" as *;
 
 .terms__container {
   margin-bottom: var(--margin-medium);

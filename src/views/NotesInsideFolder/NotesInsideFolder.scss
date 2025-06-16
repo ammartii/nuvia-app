@@ -1,4 +1,4 @@
-@import "../../styles/Mixins";
+@use "../../styles/Mixins" as *;
 
 .notes-inside-folder__container {
   background-color: var(--bg-color);

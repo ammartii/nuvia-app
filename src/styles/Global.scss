@@ -1,12 +1,12 @@
-/* Importar tipografía */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+/* Aquí se usean los css */
+@use "./Containers";
+@use "./Mixins" as *;
+@use "./Images";
+@use "./Inputs";
+@use "./Links";
+@use "./Reset";
+@use "./Typography";
+@use "./Variables";
 
-/* Aquí se importan los css */
-@import "./Containers";
-@import "./Mixins";
-@import "./Images";
-@import "./Inputs";
-@import "./Links";
-@import "./Reset";
-@import "./Typography";
-@import "./Variables";
+/* usear tipografía */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");

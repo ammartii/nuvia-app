@@ -1,4 +1,4 @@
-@import "../../../styles/Mixins";
+@use "../../../styles/Mixins" as *;
 
 .nuvia-header__container {
   padding-top: var(--padding-nuvia-header);

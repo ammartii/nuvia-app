@@ -1,4 +1,4 @@
-@import "../../../../styles/Mixins";
+@use "../../../../styles/Mixins" as *;
 
 .form-group {
   @include flex-column-left();

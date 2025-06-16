@@ -1,6 +1,2 @@
-@import "./Mixins";
-@import "./Variables";
-
-
-
-
+@use "./Mixins" as *;
+@use "./Variables";

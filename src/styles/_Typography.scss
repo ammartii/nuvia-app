@@ -1,4 +1,4 @@
-@import "./Mixins";
+@use "./Mixins" as *;
 
 body {
   font-family: "Inter", sans-serif;

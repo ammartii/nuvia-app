@@ -1,4 +1,4 @@
-@import "../../../styles/Mixins";
+@use "../../../styles/Mixins" as *;
 
 .month-selector__container {
   width: 100%;

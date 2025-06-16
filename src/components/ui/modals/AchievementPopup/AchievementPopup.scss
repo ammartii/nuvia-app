@@ -1,4 +1,4 @@
-@import "../../../../styles/Mixins";
+@use "../../../../styles/Mixins" as *;
 
 .popup-overlay {
   @include modal-overlay;
@@ -17,4 +17,3 @@
   border: none;
   cursor: pointer;
 }
-

@@ -1,4 +1,4 @@
-@import "../../styles/Mixins";
+@use "../../styles/Mixins" as *;
 
 .photo-gallery__container {
   padding-top: var(--padding-12);
